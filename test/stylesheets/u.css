@@ -1,0 +1,32 @@
+.u {
+	width: 200px;
+	height: 200px;
+	border: solid 2px ;
+	border-radius: 50% 50% 30% 30%;
+	background-color: lightgreen;
+	opacity: 0.8;
+	box-shadow: 3px 3px 6px #666;
+	margin:50px auto;
+}
+.hands {
+	width: 300px;
+	height: 100px;
+	border-right:solid 5px;
+	border-bottom:solid 5px;
+	border-left:solid 5px;
+	position: relative;
+	left: -50px;
+	top: 20px;
+	border-radius: 5% 5% 20% 20%;
+	z-index: -1;
+}
+.feet {
+	width:100px;
+	height: 100px;
+	border-left: solid 5px;
+	border-right: solid 5px;
+	position:relative;
+	top: 80px;
+	left: 50px;
+	z-index: -1;
+}
