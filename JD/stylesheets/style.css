@@ -63,29 +63,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 33, ../sass/style.scss */
+/* line 34, ../sass/style.scss */
 a {
   text-decoration: none;
   color: #666666;
 }
 
-/* line 37, ../sass/style.scss */
+/* line 38, ../sass/style.scss */
 a:hover {
   color: #cb1623;
 }
 
-/* line 43, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 body {
   font-size: 16px;
   color: #666666;
 }
 
-/* line 49, ../sass/style.scss */
+/* line 50, ../sass/style.scss */
 #mainheader nav {
   background-color: #f5f5f5;
   margin-left: 30em;
 }
-/* line 52, ../sass/style.scss */
+/* line 53, ../sass/style.scss */
 #mainheader nav li {
   list-style: none;
   float: left;
@@ -93,7 +93,7 @@ body {
   line-height: 2em;
   margin: 0 1em;
 }
-/* line 16, ../sass/style.scss */
+/* line 17, ../sass/style.scss */
 #mainheader nav li:after {
   height: 1em;
   background-color: #dddddd;
@@ -102,31 +102,31 @@ body {
   float: right;
   margin: 0.3em;
 }
-/* line 24, ../sass/style.scss */
+/* line 25, ../sass/style.scss */
 #mainheader nav li:last-child:after {
   background-color: #ffffff;
 }
-/* line 64, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 #mainheader img {
   width: 100%;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 70, ../sass/style.scss */
 #mainhero {
   width: 92%;
   margin: 20px auto;
 }
-/* line 73, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 #mainhero header {
   display: block;
   height: 6em;
 }
-/* line 77, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 #mainhero header img {
   float: left;
   margin: 0;
 }
-/* line 81, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 #mainhero header input {
   border: 2px solid #cb1623;
   height: 30px;
@@ -135,7 +135,7 @@ body {
   margin-left: 5em;
   padding-left: 5px;
 }
-/* line 89, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 #mainhero header span {
   background-color: #cb1623;
   color: #ffffff;
@@ -150,7 +150,7 @@ body {
   font-weight: bold;
   float: left;
 }
-/* line 103, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 #mainhero header a {
   display: block;
   float: right;
@@ -162,12 +162,12 @@ body {
   background-color: #f5f5f5;
   border: #e4e4e4 1px solid;
 }
-/* line 114, ../sass/style.scss */
+/* line 115, ../sass/style.scss */
 #mainhero header a:hover {
   box-shadow: 0 0 5px #dddddd;
   background-color: #ffffff;
 }
-/* line 120, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 #mainhero aside {
   background-color: #cb1623;
   color: #ffffff;
@@ -179,26 +179,26 @@ body {
   border-left: #cb1623 solid 1px;
   border-bottom: #cb1623 solid 1px;
 }
-/* line 130, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 #mainhero aside li {
   padding: 4.5px 10px;
   line-height: 1.5em;
 }
-/* line 134, ../sass/style.scss */
+/* line 136, ../sass/style.scss */
 #mainhero aside li a {
   color: #ffffff;
   text-decoration: none;
 }
-/* line 140, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 #mainhero aside li:hover {
   background-color: #ffffff;
   color: #cb1623;
 }
-/* line 143, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 #mainhero aside li:hover a {
   color: #cb1623;
 }
-/* line 150, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 #mainhero #gallery {
   position: relative;
   float: left;
@@ -206,20 +206,20 @@ body {
   height: 454px;
   margin: 0 10px 0 0;
 }
-/* line 157, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 #mainhero #gallery img {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 165, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 #mainhero #entrance {
   float: left;
   width: 248px;
   height: 454px;
   margin: 0 10px 10px 0;
 }
-/* line 171, ../sass/style.scss */
+/* line 173, ../sass/style.scss */
 #mainhero #entrance #newsflash {
   border: 1px #e4e4e4 solid;
   border-bottom: none;
@@ -227,38 +227,38 @@ body {
   line-height: 1.5em;
   padding: 2px 5px 0 5px;
 }
-/* line 177, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 #mainhero #entrance #newsflash h3 {
   border-bottom: 1px #e4e4e4 solid;
   margin-bottom: 5px;
 }
-/* line 181, ../sass/style.scss */
+/* line 183, ../sass/style.scss */
 #mainhero #entrance #newsflash .more {
   display: inline-block;
   padding-left: 100px;
   font-size: 0.8em;
 }
-/* line 188, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 #mainhero #entrance table {
   margin: 0 0 5px 0;
 }
-/* line 192, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 #mainhero #entrance table tr td {
   border: 1px #e4e4e4 solid;
   width: 62px;
   height: 70px;
   text-align: center;
 }
-/* line 203, ../sass/style.scss */
+/* line 205, ../sass/style.scss */
 #mainhero footer {
   clear: both;
 }
-/* line 206, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 #mainhero footer .roll0 {
   width: 210px;
   margin-bottom: 12px;
 }
-/* line 211, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 #mainhero footer .roll {
   width: 250px;
   height: 164px;
@@ -266,19 +266,83 @@ body {
 }
 
 /* line 224, ../sass/style.scss */
+#showcase {
+  width: 92%;
+  margin: 20px auto;
+}
+/* line 227, ../sass/style.scss */
+#showcase table {
+  width: 100%;
+}
+/* line 229, ../sass/style.scss */
+#showcase table td {
+  border: 1px #e4e4e4 solid;
+}
+/* line 232, ../sass/style.scss */
+#showcase table .cell {
+  width: 25%;
+}
+
+/* line 239, ../sass/style.scss */
+#mainaside {
+  position: fixed;
+  top: 200px;
+  left: 20px;
+  font-size: 0.8em;
+  line-height: 2em;
+}
+/* line 245, ../sass/style.scss */
+#mainaside li {
+  border-bottom: dotted #c2c2c2 1px;
+}
+/* line 250, ../sass/style.scss */
 #mainaside a:hover {
   background-color: #cb1623;
   color: #ffffff;
 }
 
-/* line 234, ../sass/style.scss */
+/* line 258, ../sass/style.scss */
+#sidebar #redpacket {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+/* line 264, ../sass/style.scss */
+#sidebar #toolbar {
+  position: fixed;
+  bottom: 200px;
+  right: 0;
+}
+/* line 269, ../sass/style.scss */
+#sidebar #toolbar li:nth-child(7) {
+  position: fixed;
+  bottom: 32px;
+  right: 0;
+}
+/* line 274, ../sass/style.scss */
+#sidebar #toolbar li:nth-child(8) {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+}
+/* line 282, ../sass/style.scss */
+#sidebar #toolbar li {
+  background-color: #7a6e6e;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 1px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* line 296, ../sass/style.scss */
 #mainfooter #dkhs {
   background-color: #f5f5f5;
   width: 100%;
   height: 6em;
   clear: both;
 }
-/* line 239, ../sass/style.scss */
+/* line 301, ../sass/style.scss */
 #mainfooter #dkhs li {
   list-style: none;
   float: left;
@@ -287,7 +351,7 @@ body {
   font-weight: bold;
   color: #333333;
 }
-/* line 246, ../sass/style.scss */
+/* line 308, ../sass/style.scss */
 #mainfooter #dkhs li span {
   display: inline-block;
   color: #cb1623;
@@ -296,7 +360,7 @@ body {
   margin: auto 0.2em;
   font-size: 1.2em;
 }
-/* line 258, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 #mainfooter .zhinan {
   clear: both;
   list-style: none;
@@ -304,12 +368,12 @@ body {
   width: 15%;
   margin: 1em auto;
 }
-/* line 265, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 #mainfooter .zhinan dt {
   font-size: 1.2em;
   line-height: 1.5em;
 }
-/* line 271, ../sass/style.scss */
+/* line 333, ../sass/style.scss */
 #mainfooter #beian, #mainfooter #chuban {
   clear: both;
   margin: 0 auto;
@@ -319,13 +383,13 @@ body {
   font-size: 0.9em;
   text-align: center;
 }
-/* line 280, ../sass/style.scss */
+/* line 342, ../sass/style.scss */
 #mainfooter #beian li, #mainfooter #chuban li {
   list-style: none;
   display: inline-block;
   margin-left: 0 auto;
 }
-/* line 16, ../sass/style.scss */
+/* line 17, ../sass/style.scss */
 #mainfooter #beian li:after, #mainfooter #chuban li:after {
   height: 1em;
   background-color: #dddddd;
@@ -334,7 +398,7 @@ body {
   float: right;
   margin: 0.3em;
 }
-/* line 24, ../sass/style.scss */
+/* line 25, ../sass/style.scss */
 #mainfooter #beian li:last-child:after, #mainfooter #chuban li:last-child:after {
   background-color: #ffffff;
 }
