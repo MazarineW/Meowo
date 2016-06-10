@@ -271,19 +271,87 @@ body {
   margin: 20px auto;
 }
 /* line 227, ../sass/style.scss */
-#showcase table {
-  width: 100%;
+#showcase h3 {
+  font-size: 2em;
 }
-/* line 229, ../sass/style.scss */
-#showcase table td {
+/* line 230, ../sass/style.scss */
+#showcase h3, #showcase h4 {
+  font-weight: bold;
+  color: #5b3bc4;
+  text-align: center;
+  line-height: 1.5em;
+}
+/* line 237, ../sass/style.scss */
+#showcase #brand table {
+  width: 100%;
+  margin: 10px 0;
+}
+/* line 240, ../sass/style.scss */
+#showcase #brand table td {
   border: 1px #e4e4e4 solid;
 }
-/* line 232, ../sass/style.scss */
-#showcase table .cell {
+/* line 243, ../sass/style.scss */
+#showcase #brand table .cell {
   width: 25%;
+  text-align: center;
+}
+/* line 246, ../sass/style.scss */
+#showcase #brand table .cell a:hover {
+  color: #cb1623;
+}
+/* line 250, ../sass/style.scss */
+#showcase #brand table .cell span {
+  font-size: 0.8em;
+  background-color: #cb1623;
+  color: #ffffff;
+}
+/* line 257, ../sass/style.scss */
+#showcase #selection table {
+  width: 100%;
+}
+/* line 260, ../sass/style.scss */
+#showcase #selection table td {
+  border: none;
+  padding: 5px;
 }
 
-/* line 239, ../sass/style.scss */
+/* line 269, ../sass/style.scss */
+#sale {
+  width: 92%;
+  margin: 20px auto;
+}
+/* line 273, ../sass/style.scss */
+#sale h3 {
+  font-size: 1.3em;
+  display: inline-block;
+  margin: 10px 0;
+}
+/* line 278, ../sass/style.scss */
+#sale #h3-2 {
+  position: relative;
+  left: 850px;
+}
+/* line 283, ../sass/style.scss */
+#sale table {
+  width: 100%;
+}
+/* line 285, ../sass/style.scss */
+#sale table td {
+  padding: 15px;
+  border: 1px #e4e4e4 solid;
+}
+/* line 288, ../sass/style.scss */
+#sale table td img {
+  float: left;
+}
+/* line 292, ../sass/style.scss */
+#sale table td .price {
+  display: block;
+  color: #cb1623;
+  font-weight: bold;
+}
+
+/* line 308, ../sass/style.scss */
 #mainaside {
   position: fixed;
   top: 200px;
@@ -291,42 +359,46 @@ body {
   font-size: 0.8em;
   line-height: 2em;
 }
-/* line 245, ../sass/style.scss */
+/* line 314, ../sass/style.scss */
 #mainaside li {
   border-bottom: dotted #c2c2c2 1px;
 }
-/* line 250, ../sass/style.scss */
+/* line 318, ../sass/style.scss */
+#mainaside li:last-child {
+  border: none;
+}
+/* line 322, ../sass/style.scss */
 #mainaside a:hover {
   background-color: #cb1623;
   color: #ffffff;
 }
 
-/* line 258, ../sass/style.scss */
+/* line 333, ../sass/style.scss */
 #sidebar #redpacket {
   position: fixed;
   top: 0;
   right: 0;
 }
-/* line 264, ../sass/style.scss */
+/* line 339, ../sass/style.scss */
 #sidebar #toolbar {
   position: fixed;
   bottom: 200px;
   right: 0;
 }
-/* line 269, ../sass/style.scss */
+/* line 344, ../sass/style.scss */
 #sidebar #toolbar li:nth-child(7) {
   position: fixed;
   bottom: 32px;
   right: 0;
 }
-/* line 274, ../sass/style.scss */
+/* line 349, ../sass/style.scss */
 #sidebar #toolbar li:nth-child(8) {
   position: fixed;
   bottom: 0;
   right: 0;
   margin: 0;
 }
-/* line 282, ../sass/style.scss */
+/* line 357, ../sass/style.scss */
 #sidebar #toolbar li {
   background-color: #7a6e6e;
   width: 32px;
@@ -335,14 +407,14 @@ body {
   border-radius: 3px 0 0 3px;
 }
 
-/* line 296, ../sass/style.scss */
+/* line 371, ../sass/style.scss */
 #mainfooter #dkhs {
   background-color: #f5f5f5;
   width: 100%;
   height: 6em;
   clear: both;
 }
-/* line 301, ../sass/style.scss */
+/* line 376, ../sass/style.scss */
 #mainfooter #dkhs li {
   list-style: none;
   float: left;
@@ -351,7 +423,7 @@ body {
   font-weight: bold;
   color: #333333;
 }
-/* line 308, ../sass/style.scss */
+/* line 383, ../sass/style.scss */
 #mainfooter #dkhs li span {
   display: inline-block;
   color: #cb1623;
@@ -360,21 +432,35 @@ body {
   margin: auto 0.2em;
   font-size: 1.2em;
 }
-/* line 320, ../sass/style.scss */
-#mainfooter .zhinan {
-  clear: both;
-  list-style: none;
-  float: left;
-  width: 15%;
-  margin: 1em auto;
+/* line 395, ../sass/style.scss */
+#mainfooter #zhinan {
+  width: 92%;
+  height: 150px;
+  margin: 20px auto;
+  padding: 0 0 20px 0;
+  border-bottom: #e4e4e4 solid 1px;
 }
-/* line 327, ../sass/style.scss */
-#mainfooter .zhinan dt {
+/* line 402, ../sass/style.scss */
+#mainfooter #zhinan dl {
+  list-style: none;
+  width: 16%;
+  margin: 1em auto;
+  display: block;
+  float: left;
+}
+/* line 410, ../sass/style.scss */
+#mainfooter #zhinan dl dt {
   font-size: 1.2em;
   line-height: 1.5em;
 }
-/* line 333, ../sass/style.scss */
-#mainfooter #beian, #mainfooter #chuban {
+/* line 415, ../sass/style.scss */
+#mainfooter #zhinan dl a:last-child {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+/* line 424, ../sass/style.scss */
+#mainfooter #beian, #mainfooter #chuban, #mainfooter #footer-daohang {
   clear: both;
   margin: 0 auto;
   padding: 0;
@@ -383,14 +469,14 @@ body {
   font-size: 0.9em;
   text-align: center;
 }
-/* line 342, ../sass/style.scss */
-#mainfooter #beian li, #mainfooter #chuban li {
+/* line 433, ../sass/style.scss */
+#mainfooter #beian li, #mainfooter #chuban li, #mainfooter #footer-daohang li {
   list-style: none;
   display: inline-block;
   margin-left: 0 auto;
 }
 /* line 17, ../sass/style.scss */
-#mainfooter #beian li:after, #mainfooter #chuban li:after {
+#mainfooter #beian li:after, #mainfooter #chuban li:after, #mainfooter #footer-daohang li:after {
   height: 1em;
   background-color: #dddddd;
   width: 2px;
@@ -399,6 +485,11 @@ body {
   margin: 0.3em;
 }
 /* line 25, ../sass/style.scss */
-#mainfooter #beian li:last-child:after, #mainfooter #chuban li:last-child:after {
+#mainfooter #beian li:last-child:after, #mainfooter #chuban li:last-child:after, #mainfooter #footer-daohang li:last-child:after {
   background-color: #ffffff;
+}
+/* line 441, ../sass/style.scss */
+#mainfooter #footer-daohang {
+  font-size: 1em;
+  margin: 10px;
 }

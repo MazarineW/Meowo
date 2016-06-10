@@ -224,16 +224,85 @@ body {
 #showcase {
 	width: 92%;
 	margin: 20px auto;
-	table {
+	h3 {
+		font-size: 2em;	
+	}
+	h3,h4 {
+		font-weight: bold;
+		color: #5b3bc4;
+		text-align: center;
+		line-height: 1.5em;
+	}
+
+	#brand table {
 		width: 100%;
+		margin: 10px 0;
 		td {
 			border: 1px $border solid;
 		}
 		.cell {
 			width: 25%;
+			text-align: center;
+			a:hover {
+				color: $emtext;
+			}
+
+			span {
+				font-size: 0.8em;
+				background-color: $emtext;
+				color: $mainbg-color;
+			}
+		}
+	}
+	#selection table {
+		width: 100%;
+
+		td {
+			border: none;
+			padding: 5px;
+
 		}
 	}
 }
+
+
+#sale {
+	width: 92%;
+	margin: 20px auto;
+	
+	h3 {
+		font-size: 1.3em;
+		display: inline-block;
+		margin: 10px 0;
+	}
+	#h3-2 {
+		position: relative;
+		left: 850px;
+		
+	}
+	table {
+		width: 100%;
+		td {
+			padding: 15px;
+			border: 1px $border solid;
+			img {
+				float: left;
+			}
+
+			.price {
+				display: block;
+				color: $emtext;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+
+
+
+
+
 
 
 #mainaside {
@@ -246,6 +315,9 @@ body {
 		border-bottom: dotted #c2c2c2 1px;
 
 	}
+	li:last-child {
+		border: none;
+	}
 
 	a:hover {
 		background-color: $emtext;
@@ -253,6 +325,9 @@ body {
 	}
 
 }
+
+
+
 
 #sidebar {
 	#redpacket {
@@ -317,20 +392,36 @@ body {
 		clear: both;
 		
 	}
-	.zhinan {
-		clear: both;
-		list-style: none;
-		float: left;
-		width: 15%;
-		margin: 1em auto;
+	#zhinan {
+		width: 92%;
+		height: 150px;
+		margin: 20px auto ;
+		padding: 0 0 20px 0;
+		border-bottom: $border solid 1px;
+	
+		dl {
+			list-style: none;
+			width: 16%;
+			margin: 1em auto;
+			display: block;
+			float: left;
 
-		dt {
 
-			font-size: 1.2em;
-			line-height: 1.5em;
-		} 
+			dt {
+
+				font-size: 1.2em;
+				line-height: 1.5em;
+			}
+			a:last-child {
+				position: relative;
+				top: 20px;
+				left: 50px;
+			}
+		}
 	}
-	#beian,#chuban {
+
+
+	#beian,#chuban,#footer-daohang {
 		clear: both;
 		margin: 0 auto;
 		padding: 0;
@@ -346,6 +437,10 @@ body {
 			@include partingline();
 		}
 		
+	}
+	#footer-daohang {
+		font-size: 1em;
+		margin: 10px;
 	}
 
 
