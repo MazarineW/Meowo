@@ -265,8 +265,71 @@ body {
 	}
 }
 
+#floor {
+	width: 92%;
+	margin: 20px auto;
+	header {
+		span {
+			background-color: $emtext;
+			color: $mainbg-color;
+			display: inline-block;
+			margin-right: 30px;
+		}
+		h3 {
+			width: 40%;
+			font-size: 1.2em;
+		}
+		h3,li {
+			float: left;
+		}
+		li {
+			padding: 5px 10px;
+			@include partingline();
+			border-top: 1px $border solid;
+		}
+		li:first-child {
+			border-left: 1px $border solid;
+		}
+		li:last-child {
+			border-right: 1px $border solid;
+		}
+	}
+
+
+	footer {
+		width: 100%;
+		background-color: #f7f7f7;
+		img {
+			width: 119px;
+			overflow: hidden;
+			padding:10px 0;
+		}
+		img:after {
+			height: 2em;
+			border-right: gray dotted 2px;
+			width: 1px;
+			content: "";
+			margin: 0.3em;
+		}
+		&:last-child:after {
+			border-right: none;
+		}
+
+
+
+
+
+
+	}
+
+
+}
+
+
+
 
 #sale {
+	clear: both;
 	width: 92%;
 	margin: 20px auto;
 	
