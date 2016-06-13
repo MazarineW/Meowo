@@ -30,7 +30,10 @@ $darktext: #333333;
 
 
 
-
+* {
+	margin: 0;
+	padding: 0;
+}
 a {
 	text-decoration: none;
 	color: $text-color;
@@ -38,7 +41,11 @@ a {
 a:hover {
 	color: $emtext;
 }
-
+.price {
+	display: block;
+	color: $emtext;
+	font-weight: bold;
+}
 
 
 body {
@@ -294,11 +301,90 @@ body {
 			border-right: 1px $border solid;
 		}
 	}
+	.floorbody {
+		clear: both;
+		// border-top: 1px $border solid;
+		// border-bottom: 1px $border solid;
+
+		.left {
+			width: 330px;
+			height: 639px;
+			border-top: $emtext 1px solid;
+			border-left: 1px $border solid;
+			border-bottom: 1px $border solid;
+
+			#left1 {
+				display: block;
+				width: 100%;
+				height: 80px;
+				list-style: none;
+				background-color: rgba(255,255,255,0.6);
+				position: relative;
+				top: -220px;
+				li {
+					list-style: none;
+					width: 33%;
+					height: 40px;
+					text-align: center;
+					line-height: 40px;
+					float: left;
+				}
+			}
+			#left2 {
+				clear: both;
+				display: block;
+				width: 100%;
+				height: 118px;
+				list-style: none;
+				background-color: rgba(255,255,255,0.8);
+				padding:10px;
+				position: relative;
+				top: -220px;
+				li {
+					list-style: none;
+					width: 50%;
+					line-height: 30px;
+					float: left;
+				}
+			}
+			.leftfooter {
+				position: relative;
+				top: -220px;
+				width: 100%;
+			}	
+		}
+		.right {
+			position: relative;
+			top: -641px;
+			left: -11px;
+
+			table {
+				width: 880px;
+				height: 630px;
+				border-top: $emtext 1px solid;
+				border-bottom: 1px $border solid;
+				border-collapse:collapse;
+				tr {
+					td {
+						border: 1px $border solid;
+						border-top: none;
+						width: 220px;
+					}
+				}
+			}
+		}
+
+
+	}
+
+
 
 
 	footer {
+		clear: both;
 		width: 100%;
 		background-color: #f7f7f7;
+		margin: 10px 0;
 		img {
 			width: 119px;
 			overflow: hidden;
@@ -352,11 +438,6 @@ body {
 				float: left;
 			}
 
-			.price {
-				display: block;
-				color: $emtext;
-				font-weight: bold;
-			}
 		}
 	}
 }
