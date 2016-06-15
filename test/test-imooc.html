@@ -26,7 +26,8 @@
          var aptd3 = document.createElement("td");
          var aa = document.createElement("a");
          aa.innerHTML="删除";
-         aa.setAttribute("href","javascript:remo();");
+         aa.setAttribute("href","javascript:;");
+         aa.setAttribute("onclick","remo(this);");
          aptd3.appendChild(aa);
          aptr.appendChild(aptd1);
          aptr.appendChild(aptd2);
@@ -37,15 +38,16 @@
 	
    	 
      // 创建删除函数
-    function remo() {
-        var retr = this.parentNode.parentNode;
-        getElementById("table").removeChild(retr);
+    function remo(e) {
+        var retr = e.parentNode.parentNode;
+        retr.parentNode.removeChild(retr);
     }     
 
 
   </script> 
  </head> 
  <body> 
+ <a href="un.html">qqq</a>
 	   <table border="1" width="50%" id="table">
 	   <tr>
 		<th>学号</th>
@@ -56,13 +58,13 @@
 	   <tr>
 		<td>xh001</td>
 		<td>王小明</td>
-		<td><a href="javascript:remo();" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+		<td><a href="javascript:;" onclick="remo(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
 	   </tr>
 
 	   <tr>
 		<td>xh002</td>
 		<td>刘小芳</td>
-		<td><a href="javascript:remo();">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+		<td><a href="javascript:;" onclick="remo(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
 	   </tr>  
 
 	   </table>

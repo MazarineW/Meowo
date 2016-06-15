@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		element {
+			position: absolute;
+			top: 50px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<p id="message">Whee!</p>
+	<script type="text/javascript" src="scripts/addLoadEvent.js"></script>
+	<script type="text/javascript">
+		//初始位置
+		function positionMessage() {
+			if (!document.getElementById)
+				return false;
+			if (!document.getElementById("message"))
+				return false;
+			var elem = document.getElementById("message");
+			elem.style.position = "absolute";
+			elem.style.left = "50px";
+			elem.style.top = "100px";
+			moveElement("message",125,25,20);
+		}
+
+		//移动元素
+		function moveElement(elementID,final_x,final_y,interval) {
+			if (!document.getElementById)
+				return false;
+			if (!document.getElementById(elementID))
+				return false;
+			var elem = document.getElementById(elementID);
+			var xpos = parseInt(elem.style.left);
+			var ypos = parseInt(elem.style.top);
+			if (xpos == final_x && ypos == final_y) {
+				return true;
+			}
+			if (xpos < final_x) {
+				xpos++;
+			}
+			if (xpos > final_x) {
+				xpos--;
+			}
+			if (ypos < final_y) {
+				ypos++;
+			}
+			if (ypos > final_y) {
+				ypos--;
+			}
+			elem.style.left = xpos + "px";
+			elem.style.top = ypos + "px";
+			var repeat = "moveElement('" +elementID + "'," + final_x + "," + final_y + "," +interval + ")";
+			movement = setTimeout(repeat,interval);
+		}
+
+
+
+
+		//加载时调用函数
+		addLoadEvent(positionMessage);
+
+
+
+
+
+
+	</script>
+</body>
+</html>
