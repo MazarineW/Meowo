@@ -30,7 +30,11 @@
 			elem.style.position = "absolute";
 			elem.style.left = "50px";
 			elem.style.top = "100px";
-			moveElement("message",600,500,10);
+			// moveElement("message",600,500,10);
+			// 见 http://stackoverflow.com/questions/4787527/how-to-find-the-width-of-a-div-using-raw-javascript
+			var w = document.body.scrollWidth - elem.offsetWidth;
+			var h = document.body.scrollHeight - elem.offsetHeight;
+			moveElement("message",w,h,10);
 		}
 
 		xFlag = 1;
@@ -108,6 +112,18 @@
 
 		//加载时调用函数
 		addLoadEvent(positionMessage);
+
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != "function") {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					oldonload();
+					func();
+				}
+			}
+		}
 
 
 
