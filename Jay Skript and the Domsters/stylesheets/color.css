@@ -151,3 +151,15 @@ header nav a.here:active {
   color: #eef;
   background-color: #799;
 }
+
+/* line 80, ../sass/color.scss */
+tr.odd td {
+  color: #223;
+  background-color: #ec8;
+}
+
+/* line 84, ../sass/color.scss */
+tr.highlight td {
+  color: #223;
+  background-color: #cba;
+}

@@ -127,3 +127,13 @@ h3 {
 textarea {
   font-family: "Helvetica","Arial",sans-serif;
 }
+
+/* line 62, ../sass/typography.scss */
+dt {
+  margin-right: 1em;
+}
+
+/* line 65, ../sass/typography.scss */
+dd {
+  margin-right: 3em;
+}

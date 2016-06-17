@@ -181,3 +181,36 @@ article img {
   border-width: 0;
   outline-width: 0;
 }
+
+/* line 103, ../sass/layout.scss */
+#imagegallery li {
+  display: inline;
+}
+
+/* line 107, ../sass/layout.scss */
+td {
+  padding: .5em 3em;
+}
+/* line 109, ../sass/layout.scss */
+td th {
+  color: #edc;
+  background-color: #455;
+}
+/* line 113, ../sass/layout.scss */
+td tr td {
+  color: #233;
+  background-color: #eb6;
+}
+
+/* line 119, ../sass/layout.scss */
+dl {
+  overflow: hidden;
+}
+/* line 121, ../sass/layout.scss */
+dl dt {
+  float: left;
+}
+/* line 124, ../sass/layout.scss */
+dl dd {
+  float: left;
+}
