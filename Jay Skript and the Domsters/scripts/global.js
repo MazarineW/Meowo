@@ -162,7 +162,7 @@ function prepareInternalnav() {
 	var navs = articles[0].getElementsByTagName("nav");
 	if (navs.length == 0)
 		return false;
-	var nav = nav[0];
+	var nav = navs[0];
 	var links = nav.getElementsByTagName("a");
 	for (var i = 0; i < links.length; i++) {
 		var sectionId = links[i].getAttribute("href").split("#")[1];

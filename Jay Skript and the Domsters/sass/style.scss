@@ -1,8 +1,8 @@
 @import "compass/reset";
 @import "compass/css3";
 
-@import url(../stylesheets/layout.css);
-@import url(../stylesheets/color.css);
-@import url(../stylesheets/typography.css);
+@import "layout.scss";
+@import "color.scss";
+@import "typography.scss";
 
 

@@ -1,6 +1,3 @@
-@import url(../stylesheets/layout.css);
-@import url(../stylesheets/color.css);
-@import url(../stylesheets/typography.css);
 /* line 5, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -64,4 +61,337 @@ a img {
 /* line 116, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+}
+
+/* line 4, ../sass/_layout.scss */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 8, ../sass/_layout.scss */
+section, header, article, nav {
+  display: block;
+}
+
+/* line 12, ../sass/_layout.scss */
+body {
+  margin: 1em 10%;
+  background-image: url(../images/background.gif);
+  background-attachment: fixed;
+  background-position: top left;
+  background-repeat: repeat-x;
+  max-width: 80em;
+}
+
+/* line 21, ../sass/_layout.scss */
+header {
+  background-image: url(../images/guitarist.gif);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  border-width: .1em;
+  border-style: solid;
+  border-bottom-width: 0;
+}
+/* line 29, ../sass/_layout.scss */
+header nav {
+  background-image: url(../images/navbar.gif);
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  border-width: .1em;
+  border-style: solid;
+  border-bottom-width: 0;
+  border-top-width: 0;
+  padding-left: 10%;
+}
+/* line 39, ../sass/_layout.scss */
+header nav ul {
+  width: 100%;
+  overflow: hidden;
+  border-left-width: .1em;
+  border-left-style: solid;
+}
+/* line 45, ../sass/_layout.scss */
+header nav li {
+  display: inline;
+}
+/* line 47, ../sass/_layout.scss */
+header nav li a {
+  display: block;
+  float: left;
+  padding: .5em 2em;
+  border-right: .1em solid;
+}
+
+/* line 57, ../sass/_layout.scss */
+article {
+  border-width: .1em;
+  border-style: solid;
+  border-top-width: 0;
+  padding: 2em 10%;
+  line-height: 1.8em;
+}
+
+/* line 72, ../sass/_layout.scss */
+#about header {
+  background-image: url(../images/lineup.gif);
+}
+
+/* line 75, ../sass/_layout.scss */
+#photos header {
+  background-image: url(../images/basshead.gif);
+}
+
+/* line 78, ../sass/_layout.scss */
+#live header {
+  background-image: url(../images/bassist.gif);
+}
+
+/* line 81, ../sass/_layout.scss */
+#contact header {
+  background-image: url(../images/drummer.gif);
+}
+
+/* line 85, ../sass/_layout.scss */
+#slideshow {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 91, ../sass/_layout.scss */
+#frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+/* line 97, ../sass/_layout.scss */
+#preview {
+  position: absolute;
+  border-width: 0;
+  outline-width: 0;
+}
+
+/* line 103, ../sass/_layout.scss */
+#imagegallery li {
+  display: inline;
+}
+
+/* line 107, ../sass/_layout.scss */
+th, td {
+  padding: .5em 3em;
+}
+
+/* line 111, ../sass/_layout.scss */
+dl {
+  overflow: hidden;
+}
+/* line 113, ../sass/_layout.scss */
+dl dt {
+  float: left;
+}
+/* line 116, ../sass/_layout.scss */
+dl dd {
+  float: left;
+}
+
+/* line 121, ../sass/_layout.scss */
+label {
+  display: block;
+}
+
+/* line 124, ../sass/_layout.scss */
+fieldset {
+  border: 0;
+}
+
+/* line 4, ../sass/_color.scss */
+body {
+  color: #fb5;
+  background-color: #334;
+}
+
+/* line 9, ../sass/_color.scss */
+a:link {
+  color: #445;
+  background-color: #eb6;
+}
+
+/* line 13, ../sass/_color.scss */
+a:visited {
+  color: #345;
+  background-color: #eb6;
+}
+
+/* line 17, ../sass/_color.scss */
+a:hover {
+  color: #667;
+  background-color: #fb5;
+}
+
+/* line 21, ../sass/_color.scss */
+a:active {
+  color: 778;
+  background-color: #ec8;
+}
+
+/* line 27, ../sass/_color.scss */
+header {
+  color: #ec8;
+  background-color: #334;
+  border-color: #667;
+}
+/* line 32, ../sass/_color.scss */
+header nav {
+  color: #455;
+  background-color: #789;
+  border-color: #667;
+}
+/* line 37, ../sass/_color.scss */
+header nav ul {
+  border-color: #99a;
+}
+/* line 41, ../sass/_color.scss */
+header nav a:link, header nav a:visited {
+  color: #eef;
+  background-color: transparent;
+  border-color: #99a;
+}
+/* line 46, ../sass/_color.scss */
+header nav a:hover {
+  color: #445;
+  background-color: #eb6;
+}
+/* line 50, ../sass/_color.scss */
+header nav a:active {
+  color: #667;
+  background-color: #ec8;
+}
+
+/* line 57, ../sass/_color.scss */
+article {
+  color: #223;
+  background-color: #edc;
+  border-color: #667;
+}
+/* line 62, ../sass/_color.scss */
+article img {
+  border-color: #ba9;
+  outline-color: #dcb;
+}
+
+/* line 68, ../sass/_color.scss */
+#imagegallery a {
+  background-color: transparent;
+}
+
+/* line 72, ../sass/_color.scss */
+header nav a.here:link,
+header nav a.here:visited,
+header nav a.here:hover,
+header nav a.here:active {
+  color: #eef;
+  background-color: #799;
+}
+
+/* line 80, ../sass/_color.scss */
+th {
+  color: #edc;
+  background-color: #455;
+}
+
+/* line 84, ../sass/_color.scss */
+tr td {
+  color: #233;
+  background-color: #eb6;
+}
+
+/* line 88, ../sass/_color.scss */
+tr.odd td {
+  color: #223;
+  background-color: #ec8;
+}
+
+/* line 92, ../sass/_color.scss */
+tr.highlight td {
+  color: #223;
+  background-color: #cba;
+}
+
+/* line 5, ../sass/_typography.scss */
+body {
+  font-size: 76%;
+  font-family: "Helvetica","Arial",sans-serif;
+}
+/* line 9, ../sass/_typography.scss */
+body * {
+  font-size: 1em;
+}
+
+/* line 14, ../sass/_typography.scss */
+a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 19, ../sass/_typography.scss */
+header nav {
+  font-family: "Lucida Grande","Helvetica","Arial",sans-serif;
+}
+/* line 22, ../sass/_typography.scss */
+header nav a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* line 29, ../sass/_typography.scss */
+article {
+  line-height: 1.8em;
+}
+/* line 32, ../sass/_typography.scss */
+article p {
+  margin: 1em 0;
+}
+
+/* line 37, ../sass/_typography.scss */
+h1 {
+  font-family: "Georgia","Times New Roman",sans-serif;
+  font: 2.4em normal;
+}
+
+/* line 42, ../sass/_typography.scss */
+h2 {
+  font-family: "Georgia","Times New Roman",sans-serif;
+  font: 1.8em normal;
+  margin-top: 1em;
+}
+
+/* line 48, ../sass/_typography.scss */
+h3 {
+  font-family: "Georgia","Times New Roman",sans-serif;
+  font: 1.4em normal;
+  margin-top: 1em;
+}
+
+/* line 54, ../sass/_typography.scss */
+#imagegallery li {
+  list-style-type: none;
+}
+
+/* line 58, ../sass/_typography.scss */
+textarea {
+  font-family: "Helvetica","Arial",sans-serif;
+}
+
+/* line 62, ../sass/_typography.scss */
+dt {
+  margin-right: 1em;
+}
+
+/* line 65, ../sass/_typography.scss */
+dd {
+  margin-right: 3em;
 }

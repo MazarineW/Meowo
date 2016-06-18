@@ -61,12 +61,12 @@ article {
 	padding: 2em 10%;
 	line-height: 1.8em;
 
-	img {
-		border-width: .1em;
-		border-style: solid;
-		outline-width: .1em;
-		outline-style: solid;
-	}
+	// img {
+	// 	border-width: .1em;
+	// 	border-style: solid;
+	// 	outline-width: .1em;
+	// 	outline-style: solid;
+	// }
 }
 
 #about header {
@@ -104,16 +104,8 @@ article {
 	display: inline;
 }
 
-td {
+th,td {
 	padding: .5em 3em;
-	th {
-		color: #edc;
-		background-color: #455;
-	}
-	tr td {
-		color: #233;
-		background-color: #eb6;
-	}
 }
 
 dl {
