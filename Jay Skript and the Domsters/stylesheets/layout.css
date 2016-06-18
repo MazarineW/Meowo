@@ -214,3 +214,13 @@ dl dt {
 dl dd {
   float: left;
 }
+
+/* line 129, ../sass/layout.scss */
+label {
+  display: block;
+}
+
+/* line 132, ../sass/layout.scss */
+fieldset {
+  border: 0;
+}
