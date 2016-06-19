@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Time Flies</title>
+	<style type="text/css">
+		body {
+			background-color: #c2c2c2;
+		}
+		li {
+			float: left;
+			display: block;
+			margin: 2px;
+			padding: 10px;
+			width: 4%;
+			height: 20px;
+			line-height: 20px;
+			color: #00e48c;
+			text-align: center;
+			border: solid 1px #c2c2c2;
+			font-size: 1.5em;
+			font-family: "Copperplate Gothic Light";
+		}
+		.past {
+			background-color: #919191;
+			color: #c2c2c2;
+		}
+		.today {
+	/*		background-color: #ffff73;
+			color: #ffb06b;
+			border-color: #ffb06b;*/
+			font-weight: bold;
+			background-color: #b5f1cc;
+			color: #ffffff;
+		}
+		.future {
+			background-color: #ffffff;
+			color: #b5f1cc;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function calendar() {
+			var caleul = document.createElement("ul");
+			var litext = 0;
+			for (var i = 0; i < 366; i++) {
+				var newli = document.createElement("li");
+				litext = litext + 1;
+				var linode = document.createTextNode(litext);
+				newli.appendChild(linode);
+				caleul.appendChild(newli);
+			}
+			document.body.appendChild(caleul);
+		}
+
+		function daypast() {
+			var zero = new Date();
+			zero.setFullYear(2016,0,0);
+			var today = new Date();
+			var days = document.getElementsByTagName("li");
+
+			if (days.length == 0) {
+				return false;
+			}
+			for (var i = 0; i < days.length; i++) {
+				var number = parseInt(days[i].innerHTML);
+				mi_number = number*24*60*60*1000;
+				mi_zero = zero.getTime();
+				mi_today = today.getTime();
+				var mi_date = mi_zero + mi_number;
+				if (mi_date == mi_today) {
+					days[i].setAttribute("class","today");
+				} else if (mi_date < mi_today) {
+					days[i].setAttribute("class","past");
+				} else {
+					days[i].setAttribute("class","future");
+				}
+			}
+		}
+
+
+		addLoadEvent(calendar);
+		addLoadEvent(daypast);
+
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != "function") {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					oldonload();
+					func();
+				}
+			}
+		}
+	</script>
+</body>
+</html>
