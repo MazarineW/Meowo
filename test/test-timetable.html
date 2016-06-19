@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TimeTable</title>
+	<style type="text/css">
+		body {
+			width: 80%;
+			margin: 20px auto;
+		}
+		li {
+			width: 13%;
+			float: left;
+			border: solid 2px gray;
+			padding: 10px;
+			margin: 20px;
+			list-style: none;
+			height: 30px;
+		}
+		.over {
+			background-color: #fff3c2;
+		}
+		input {
+			margin: 20px;
+			height: 50px;
+			border-color: #b9f3ba;
+			text-align: center;
+			width: 200px;
+			margin: 20px auto;
+			display: block;
+		}
+		.button {
+			border-radius: 10px;
+			background-color: #b9f3ba;
+			width: 100px;
+			height: 50px;
+		}
+		#countdownclock {
+			clear: both;
+			background-color: #536e68;
+			color: white;
+			font-size: 20px;
+			font-weight: border;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="button" value="START" onclick="startClock()" class="button"></input>
+	<ul class="hours">
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+		<li class="newhour"></li>
+	</ul>
+	<div class="countdown">
+		<input id="countdownclock" placeholder="start number"></input>
+		<input placeholder="interval" id="interval"></input>
+		<input type="button" value="START" onclick="countdown()" class="button"></input>
+	</div>
+	<script type="text/javascript">
+		function startClock() {
+			var newhours = document.getElementsByClassName("newhour");
+			if (newhours.length != 0) {
+				newhours[0].setAttribute("class","over");
+			} else {
+				return false;
+			}
+			setTimeout("startClock()",1000);
+		}
+
+		function countdown() {
+			var clock = document.getElementById("countdownclock");
+			var clocknum = parseInt(clock.value);
+			var interval = document.getElementById("interval")
+			var intervalnum = parseInt(interval.value);
+			if (clocknum > 0) {
+				clocknum = clocknum - 1;
+				clock.value = clocknum;
+				} else {
+					return false;
+				}
+			setTimeout("countdown()",intervalnum*1000);
+		}
+
+	</script>
+</body>
+</html>
