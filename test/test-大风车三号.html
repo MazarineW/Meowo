@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160620</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#windmill {
+			position: relative;
+			top: 200px;
+			left: 200px;
+			width: 200px;
+			height: 200px;
+		}
+		.blade {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+		}
+		.blader {
+			width: 142px;
+			height: 142px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		#blade1 {
+			left: 200px;
+		}
+		#blade2 {
+			top: 200px;
+			left: 200px;
+		}
+		#blade3 {
+			top: 200px;
+		}
+		#blade11 {
+			left: 200px;
+		}
+		#blade22 {
+			top: 200px;
+			left: 200px;
+		}
+		#blade33 {
+			top: 200px;
+		}
+		#red {
+			position: absolute;
+			border-left: solid 100px red;
+			border-right: solid 100px transparent;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px transparent;
+		}
+		#green {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px transparent;
+			border-top: solid 100px green;
+			border-bottom: solid 100px transparent;
+		}
+		#yellow {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px yellow;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px transparent;
+		}
+		#blue {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px transparent;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px blue;
+		}
+		#redr {
+			position: absolute;
+			border-left: solid 71px transparent;
+			border-right: solid 71px transparent;
+			border-top: solid 71px transparent;
+			border-bottom: solid 71px transparent;
+		}
+		#greenr {
+			position: absolute;
+			border-left: solid 71px transparent;
+			border-right: solid 71px transparent;
+			border-top: solid 71px transparent;
+			border-bottom: solid 71px transparent;
+		}
+		#yellowr {
+			position: absolute;
+			border-left: solid 71px transparent;
+			border-right: solid 71px transparent;
+			border-top: solid 71px transparent;
+			border-bottom: solid 71px transparent;
+		}
+		#bluer {
+			position: absolute;
+			border-left: solid 71px transparent;
+			border-right: solid 71px transparent;
+			border-top: solid 71px transparent;
+			border-bottom: solid 71px transparent;
+		}
+	</style>
+</head>
+<body>
+	<div id="windmill">
+		<div class="blade" id="blade1">
+			<div id="red"></div>
+		</div>
+		<div class="blader" id="blade11">
+			<div id="redr"></div>
+		</div>
+		<div class="blade" id="blade2">
+			<div id="green"></div>
+		</div>
+		<div class="blader" id="blade22">
+			<div id="greenr"></div>
+		</div>
+		<div class="blade" id="blade3">
+			<div id="yellow"></div>
+		</div>
+		<div class="blader" id="blade33">
+			<div id="yellowr"></div>
+		</div>
+		<div class="blade" id="blade4">
+			<div id="blue"></div>
+		</div>
+		<div class="blader" id="blade44">
+			<div id="bluer"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function rotateWindmill() {
+			var windmill = document.getElementById("windmill");
+			var blade1 = document.getElementById("red");
+			var blade2 = document.getElementById("green");
+			var blade3 = document.getElementById("yellow");
+			var blade4 = document.getElementById("blue");
+			var blade11 = document.getElementById("redr");
+			var blade22 = document.getElementById("greenr");
+			var blade33 = document.getElementById("yellowr");
+			var blade44 = document.getElementById("bluer");
+			
+			var c1 = "red", c2 = "transparent",
+				c3 = "green", c4 = "transparent",
+				c5 = "yellow", c6 = "transparent",
+				c7 = "blue", c8 = "transparent";
+			var rotate = function() {
+				var c0 = c1;
+				c1 = c8;
+				c8 = c7;
+				c7 = c6;
+				c6 = c5;
+				c5 = c4;
+				c4 = c3;
+				c3 = c2;
+				c2 = c0;
+
+				blade1.style.borderLeft = c1 + " solid 100px";
+				blade11.style.borderRight = c2 + " solid 71px";
+				blade11.style.borderBottom = c2 + " solid 71px";
+
+				blade2.style.borderTop = c3 + " solid 100px";
+				blade22.style.borderBottom = c4 + " solid 71px";
+				blade22.style.borderLeft = c4 + " solid 71px";
+				
+				blade3.style.borderRight = c5 + " solid 100px";
+				blade33.style.borderLeft = c6 + " solid 71px";
+				blade33.style.borderTop = c6 + " solid 71px";
+				
+				blade4.style.borderBottom = c7 + " solid 100px";
+				blade44.style.borderTop = c8 + " solid 71px";
+				blade44.style.borderRight = c8 + " solid 71px";
+				
+			};
+			setInterval(rotate,500);
+		}
+
+		addLoadEvent(rotateWindmill);
+
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != "function") {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					oldonload();
+					func();
+				}
+			}
+		}
+	</script>
+</body>
+</html>
