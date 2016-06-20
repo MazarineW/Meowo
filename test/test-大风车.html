@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160620</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#windmill {
+			position: relative;
+			top: 200px;
+			left: 200px;
+			width: 200px;
+			height: 200px;
+		}
+		.blade {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+		}
+		#blade1 {
+			left: 200px;
+		}
+		#blade2 {
+			top: 200px;
+			left: 200px;
+		}
+		#blade3 {
+			top: 200px;
+		}
+		#red {
+			position: absolute;
+			border-left: solid 100px red;
+			border-right: solid 100px transparent;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px transparent;
+		}
+		#green {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px transparent;
+			border-top: solid 100px green;
+			border-bottom: solid 100px transparent;
+		}
+		#yellow {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px yellow;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px transparent;
+		}
+		#blue {
+			position: absolute;
+			border-left: solid 100px transparent;
+			border-right: solid 100px transparent;
+			border-top: solid 100px transparent;
+			border-bottom: solid 100px blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="windmill">
+		<div class="blade" id="blade1">
+			<div id="red"></div>
+		</div>
+		<div class="blade" id="blade2">
+			<div id="green"></div>
+		</div>
+		<div class="blade" id="blade3">
+			<div id="yellow"></div>
+		</div>
+		<div class="blade" id="blade4">
+			<div id="blue"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function rotateWindmill() {
+			var windmill = document.getElementById("windmill");
+			var blade1 = document.getElementById("blade1");
+			var blade2 = document.getElementById("blade2");
+			var blade3 = document.getElementById("blade3");
+			var blade4 = document.getElementById("blade4");
+			
+			var red_l = 200 + "px", red_t = 0 + "px";
+			var green_l = 200 + "px", green_t = 200 + "px";
+			var yellow_l = 0 + "px", yellow_t = 200 + "px";
+			var blue_l = 0 + "px", blue_t = 0 + "px";
+			var rotate = function() {
+				var red_ol = red_l;
+				var red_ot = red_t;
+				red_l = green_l;
+				red_t = green_t;
+				green_l = yellow_l;
+				green_t = yellow_t;
+				yellow_l = blue_l;
+				yellow_t = blue_t;
+				blue_l = red_ol;
+				blue_t = red_ot;
+				blade1.style.left = red_l;
+				blade1.style.top = red_t;
+				blade2.style.left = green_l;
+				blade2.style.top = green_t;
+				blade3.style.left = yellow_l;
+				blade3.style.top = yellow_t;
+				blade4.style.left = blue_l;
+				blade4.style.top = blue_t
+			};
+			setInterval(rotate,1000);
+		}
+
+		addLoadEvent(rotateWindmill);
+
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != "function") {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					oldonload();
+					func();
+				}
+			}
+		}
+	</script>
+</body>
+</html>
