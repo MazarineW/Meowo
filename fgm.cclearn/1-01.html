@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20160629</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if IE]>
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <style type="text/css">
+		.btn {
+			width: 250px;
+			margin: 0 auto;
+		}
+		input {
+			float: left;
+			margin: 3px;
+		}
+		#box {
+			clear: both;
+			width: 100px;
+			height: 100px;
+			margin: 200px auto;
+			background-color: black;
+		}
+    </style>
+    <script type="text/javascript">
+    	var changeStyle = function(elem, attr, value) {
+    		elem.style[attr] = value;
+    	};
+    	window.onload = function() {
+    		var box = document.getElementById("box");
+    		var inp = document.getElementsByTagName("input");
+    		var att = ["width","height","backgroundColor","display","display"];
+    		var val = ["200px","200px","red","none","block"];
+    		for (var i = 0; i < inp.length; i++) {
+    			inp[i].index = i;
+    			inp[i].onclick = function() {
+    				if(this.index ==inp.length - 1) {
+    					box.style.cssText = "";
+    				}
+    				changeStyle(box,att[this.index],val[this.index])
+    			}
+    		}
+
+    	}
+    </script>
+</head>
+<body>
+	<div class="btn">
+		<input type="button" value="变宽"></input>
+		<input type="button" value="变高"></input>
+		<input type="button" value="变色"></input>
+		<input type="button" value="隐藏"></input>
+		<input type="button" value="重置"></input>
+	</div>
+	<div id="box"></div>
+
+</body>
+</html>

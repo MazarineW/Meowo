@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160629</title>
+	<style type="text/css">
+		li {
+			float: left;
+			list-style-type: none;
+		}
+		#colors li {
+			display: block;
+			margin: 5px;
+			float: left;
+			width: 10px;
+			height: 10px;
+			border: 5px solid;
+		}
+		#colors li.on {
+			background-color: white!important;
+		}
+		nav {
+			clear: both;
+		}
+		nav  li {
+			width: 80px;
+			height: 20px;
+			border: 1px solid white;
+			text-align: center;
+			padding: 3px;
+		}
+		nav li a {
+			text-decoration: none;
+			color: white;
+		}
+		nav li a:hover {
+			text-decoration: underline;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="stylesheets/1-02-green.css">
+	
+</head>
+<body>
+	<div id="colors">
+		<ul>
+			<li id="red"></li>
+			<li id="green"></li>
+			<li id="black"></li>
+		</ul>
+	</div>
+	<nav>
+		<ul>
+			<li><a href="">新闻</a></li>
+			<li><a href="">娱乐</a></li>
+			<li><a href="">体育</a></li>
+			<li><a href="">电影</a></li>
+			<li><a href="">音乐</a></li>
+			<li><a href="">旅游</a></li>
+		</ul>
+	</nav>
+	<script type="text/javascript">
+		
+		var col = document.getElementById("colors");
+		var btns = col.getElementsByTagName("li");
+		window.onload = function() {
+			for (var i = 0; i < btns.length; i++) {
+				btns[i].style.backgroundColor = btns[i].id;
+				btns[i].style.border = btns[i].id + " 5px solid";
+    			btns[i].onclick = function() {
+    				color = this.id;
+    				for (i = 0; i < btns.length; i++) {
+    					btns[i].className = "";
+    				}
+    				this.className = "on";
+					var head = document.getElementsByTagName("head")[0];
+					var oldlinks = document.getElementsByTagName("link");
+					for (var i = 0; i < oldlinks.length; i++) {
+						head.removeChild(oldlinks[i]);
+					}
+					var link = document.createElement("link");
+					link.rel = "stylesheet";
+					link.type = "text/css";
+					link.href = "stylesheets/1-02-" + color + ".css";
+					
+					head.appendChild(link);
+				}
+			}
+		};
+	</script>
+</body>
+</html>
