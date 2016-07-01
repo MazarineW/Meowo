@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160701</title>
+	<style type="text/css">
+		div {
+			width: 65%;
+			margin: 10px auto;
+		}
+		#in {
+			width: 200px;
+		}
+		label {
+			font-size: 80%;
+			color: #575757;
+		}
+		#btn {
+			display: block;
+			margin: 10px 0;
+		}
+		p {
+			font-size: 150%;
+			color: red;
+			font-weight: bold;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input id="in"></input><label>输入数字求和，数字之间用半角","号分隔</label>
+		<input type="button" id="btn" value="求和" onclick="sumNums()"></input>
+		<p id="ans"></p>
+	</div>
+	<script type="text/javascript">
+		function sumNums() {
+			var btn = document.getElementById("btn");
+			var input = document.getElementById("in");
+			var nums = input.value.split(",");
+			var sum = 0;
+			for (var i = 0; i < nums.length; i++) {
+				sum = sum + parseInt(nums[i]);
+			}
+			var ans = document.getElementById("ans");
+			ans.innerHTML = sum;
+		}
+	</script>
+</body>
+</html>
