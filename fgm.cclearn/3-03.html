@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160702</title>
+	<style type="text/css">
+		input {
+			display: block;
+			width: 30px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="0"></input>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("input")[0];
+		btn.onclick = function() {
+			var num = parseInt(btn.value);
+			btn.value = num + 1;
+			alert(btn.value);
+		}
+	</script>
+</body>
+</html>

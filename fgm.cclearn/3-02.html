@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160702</title>
+	<style type="text/css">
+		#con {
+			width: 300px;
+			margin: 10px auto;
+		}
+		input {
+			width: 50px;
+		}
+		span {
+			display: inline-block;
+			width: 20px;
+			text-align: center;
+		}
+		#ans {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="con">
+		<input id="num1"></input><span>+</span><input id="num2"></input><span>=</span><span id="ans"></span>
+		<input type="button" value="求和" onclick="sumup()"></input>
+	</div>
+	<script type="text/javascript">
+		function sumup() {
+			var num1 = document.getElementById("num1");
+			var num2 = document.getElementById("num2");
+			var ans = document.getElementById("ans");
+			var sum = parseInt(num1.value) + parseInt(num2.value);
+			if (!num1.value || !num2.value) {
+				alert("请输入数字！")
+			} else {
+				ans.innerHTML = sum;
+			}
+		}
+	</script>
+</body>
+</html>
