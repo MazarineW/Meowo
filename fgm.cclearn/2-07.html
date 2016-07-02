@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160702</title>
+	<style type="text/css">
+		#con {
+			width: 500px;
+			border: 1px solid #000;
+			margin: 10px auto;
+		}
+		ul {
+			list-style-type: none;
+			background-color: #000;
+			height: 40px;
+			margin-top: 0;
+			padding-left: 0;
+			border-bottom: 1px solid #000;
+
+		}
+		li {
+			display: inline-block;
+			width: 60px;
+			text-align: center;
+			color: white;
+			line-height: 40px;
+
+		}
+		li.hover {
+			background-color: #ccc;
+			color: #000;
+		}
+		.tab {
+			display: none;
+		}
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="con">
+		<ul>
+			<li>第一课</li>
+			<li>第二课</li>
+			<li>第三课</li>
+		</ul>
+		<div class="tab show">
+			网页特效原理分析
+			响应用户操作
+			提示框效果
+			事件驱动
+			元素属性操作
+			动手编写第一个JS特效
+			引入函数
+			网页换肤效果
+			展开/收缩播放列表效果
+		</div>
+		<div class="tab">
+			改变网页背景颜色
+			函数传参
+			高重用性函数的编写
+			126邮箱全选效果
+			循环及遍历操作
+			调试器的简单使用
+			典型循环的构成
+			for循环配合if判断
+			className的使用
+			innerHTML的使用
+			戛纳印象效果
+			数组
+			字符串连接			
+		</div>
+		<div class="tab">
+			JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源
+			JavaScript出现的位置、优缺点
+			变量、类型、typeof、数据类型转换、变量作用域
+			闭包：什么是闭包、简单应用、闭包缺点
+			运算符：算术、赋值、关系、逻辑、其他运算符
+			程序流程控制：判断、循环、跳出
+			命名规范：命名规范及必要性、匈牙利命名法
+			函数详解：函数构成、调用、事件、传参数、可变参、返回值
+			定时器的使用：setInterval、setTimeout
+			定时器应用：站长站导航效果
+			定时器应用：自动播放的选项卡
+			定时器应用：数码时钟
+			程序调试方法			
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function() {
+			var lis = document.getElementsByTagName("li");
+			var tabs = document.getElementsByClassName("tab");
+			for (var i = 0; i < lis.length; i++) {
+				lis[i].index = i;
+				lis[i].onmouseover = function() {
+					for (var n = 0; n < lis.length; n++) {
+						lis[n].className = "";
+						tabs[n].className = "tab";
+					}
+					this.className = "hover";
+					tabs[this.index].className = "tab show";
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

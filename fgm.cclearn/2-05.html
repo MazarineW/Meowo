@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160702</title>
+	<style type="text/css">
+		#set {
+			width: 250px;
+			margin: 10px auto;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		#set>input {
+			display: inline-block;
+			width: 50px;
+			margin: 5px 20px; 
+		}
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: #000;
+			margin: 10px auto;
+			padding: 5px;
+		}
+		#box p {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="set">
+		<label>属性名：<input id="attrname" value="background"></input></label>
+		<label>属性值：<input id="attrvalue" value="blue"></input></label>
+		<input type="button" id="confirm" value="确定"></input><input type="button" id="reset" value="重置"></input>
+	</div>
+	<div id="box">
+		<p>在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</p>
+	</div>
+	<script type="text/javascript">
+		window.onload = function() {
+			var attrname = document.getElementById("attrname");
+			var attrvalue = document.getElementById("attrvalue");
+			var box = document.getElementById("box");
+			var confirm = document.getElementById("confirm");
+			var reset = document.getElementById("reset");
+			confirm.onclick = function() {
+				box.style[attrname.value] = attrvalue.value;
+			}
+			reset.onclick = function() {
+				box.removeAttribute("style");
+			}
+		}
+		
+
+	</script>
+</body>
+</html>

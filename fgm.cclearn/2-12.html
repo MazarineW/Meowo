@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160702</title>
+	<style type="text/css">
+		#con {
+			width: 200px;
+			margin: 10px auto;
+		}
+		ul {
+			list-style-type: none;
+			border: solid 1px #000;
+			border-radius: 10px;
+			width: 150px;
+			background-color: #fafafa;
+			line-height: 30px;
+		}
+		li:first-child:after {
+			width: 170px;
+			height: 1px;
+			background-color: #000;
+			content: " ";
+			display: block;
+			position: relative;
+			left: -30px;
+		}
+		a {
+			display: inline-block;
+			margin-left: 10px;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="con">
+		<ul>
+			<li><input type="checkbox" id="all"></input><label>全选</label><a href="javascript:;">反选</a></li>
+			<li><input type="checkbox"><label for="">选项1</label></li>
+			<li><input type="checkbox"><label for="">选项2</label></li>
+			<li><input type="checkbox"><label for="">选项3</label></li>
+			<li><input type="checkbox"><label for="">选项4</label></li>
+			<li><input type="checkbox"><label for="">选项5</label></li>
+			<li><input type="checkbox"><label for="">选项6</label></li>
+			<li><input type="checkbox"><label for="">选项7</label></li>
+			<li><input type="checkbox"><label for="">选项8</label></li>
+			<li><input type="checkbox"><label for="">选项9</label></li>
+			<li><input type="checkbox"><label for="">选项10</label></li>
+		</ul>
+		<p>1、切换全选/全不选文字；2、根据选中个数更新全选框状态。</p>
+	</div>
+	<script type="text/javascript">
+		var allbtn = document.getElementById("all");
+		var alltext = document.getElementsByTagName("label")[0];
+		var inversebtn = document.getElementsByTagName("a")[0];
+		var options = document.getElementsByTagName("input");
+		//全选
+		allbtn.onclick = function() {
+			if (allbtn.checked == true) {
+				for (var i = 1; i < options.length; i++) {
+					options[i].checked = true;
+				}
+				alltext.innerHTML = "全不选";
+			} else {
+				for (var i = 1; i < options.length; i++) {
+					options[i].checked = false;
+				}
+				alltext.innerHTML = "全选";
+			}
+		}
+		//反选
+		inversebtn.onclick = function () {
+			for (var i = 1; i < options.length; i++) {
+				if (options[i].checked == true) {
+					options[i].checked = false;
+				} else {
+					options[i].checked = true;
+				}
+			}
+			allcheck();
+		}
+		//更新全选框状态
+		function allcheck() {
+			allbtn.checked = true;
+			alltext.innerHTML = "全不选";
+			for (var i = 1; i < options.length; i++) {
+				if (options[i].checked == false) {
+					allbtn.checked = false;
+					alltext.innerHTML = "全选";
+					break;
+				}
+			}
+		}
+		//点击选项更新全选框状态
+		for (var i = 1; i < options.length; i++) {
+			options[i].onclick = allcheck;
+		}
+
+	</script>
+</body>
+</html>
