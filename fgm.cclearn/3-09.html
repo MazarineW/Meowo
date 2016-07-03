@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160703</title>
+	<style type="text/css">
+		div {
+			width: 300px;
+			margin: 10pxx auto;
+			background-color: #000;
+			color: #fff;
+			padding: 10px;
+			margin: 10px auto;
+			text-align: center;
+		}
+		#sec {
+			border: 2px solid #ccc;
+			width: 50px;
+			height: 30px;
+			font-size: 25px;
+			text-align: center;
+			line-height: 30px;
+		}
+		label {
+			display: inline-block;
+			width: 50px;
+			height: 30px;
+			text-align: center;
+			font-size: 20px;
+			line-height: 30px
+		}
+		#start {
+			display: block;
+			margin: 20px auto;
+			width: 200px;
+			height: 40px;
+			border-radius: 10px;
+			background: linear-gradient(to top, #149428 50%, #b8d4b3);
+			color: #fff;
+			font-size: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input id="sec" value="100"></input><label>秒</label>
+		<input type="button" value="启动" id="start"></input>
+	</div>
+	<script type="text/javascript">
+		var sec = document.getElementById("sec");
+		var start = document.getElementById("start");
+		start.onclick = function() {
+			if (start.value == "取消") {
+				clearInterval(interval);
+				start.style.background = "linear-gradient(to top, #149428 50%, #b8d4b3)";
+				start.value = "启动";
+			} else {
+				interval = setInterval(countdown,1000);
+				start.style.background = "linear-gradient(to top, #851415 50%, #c28889)";
+				start.value = "取消";
+			}
+		};
+		function countdown() {
+			if (sec.value <= 0) {
+				clearInterval(interval);
+			} else {
+				var secnum = sec.value;
+				sec.value = secnum - 1;
+			}
+		}
+		
+		
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160703</title>
+	<style type="text/css">
+		#cal {
+			width: 300px;
+			margin: 10px auto;
+			background-color: #000;
+			border-radius: 5px;
+			border: 5px solid #000;
+		}
+		p {
+			color: #ddd;
+			height: 8px;
+			text-align: right;
+			font-size: 6px;
+			padding-right: 10px; 
+		}
+		input {
+			display: block;
+			width: 100%;
+			height: 30px;
+			background-color: #e8e8da;
+		}
+		td {
+			width: 60px;
+			height: 40px;
+			border: solid 5px #000;
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			color: #fff;
+			font-size: 30px;
+			font-weight: bold;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			line-height: 40px;
+			border-radius: 5px;
+			background: linear-gradient(to top, #000 60%, #ccc);
+		}
+		a:hover {
+			background: linear-gradient(to bottom, #000 70%, #707070);
+		}
+		.btn0 {
+			background: linear-gradient(to top, #625046 60%, #aba19b);
+		}
+		.btn0:hover {
+			background: linear-gradient(to bottom, #625046 70%, #aba19b);
+		}
+		#btneq {
+			background: linear-gradient(to top, #eb7613 60%, #fab57b);
+		}
+		#btneq:hover {
+			background: linear-gradient(to bottom, #eb7613 60%, #fab57b);
+		}
+	</style>
+</head>
+<body>
+	<div id="cal">
+		<p>By-Meowo</p>
+		<input></input>
+		<input id="ans"></input>
+		<table>
+			<tr>
+				<td><a href="" class="btn0">c</a></td>
+				<td><a href="" class="btn0">%</a></td>
+				<td><a href="" class="btn0">÷</a></td>
+				<td><a href="" class="btn0">×</a></td>
+			</tr>
+			<tr>
+				<td><a href="" class="btnnum">7</a></td>
+				<td><a href="" class="btnnum">8</a></td>
+				<td><a href="" class="btnnum">9</a></td>
+				<td><a href="" class="btn0">-</a></td>
+			</tr>
+			<tr>
+				<td><a href="" class="btnnum">4</a></td>
+				<td><a href="" class="btnnum">5</a></td>
+				<td><a href="" class="btnnum">6</a></td>
+				<td><a href="" class="btn0">+</a></td>
+			</tr>
+			<tr>
+				<td><a href="" class="btnnum">1</a></td>
+				<td><a href="" class="btnnum">2</a></td>
+				<td><a href="" class="btnnum">3</a></td>
+				<td rowspan="2"><a href="" id="btneq">=</a></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="btnnum"><a href="">0</a></td>
+				<td><a href="" id="btnpo">.</a></td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		var btn0s = document.getElementsByClassName("btn0");
+		var btneq = document.getElementById("btneq");
+		var btnnums = document.getElementsByClassName("btnnum");
+		var nums = parseInt(btnnums.innerHTML);
+		var scrans = document.getElementById("ans");
+		var ansnum = 0;
+		for (var i = 0; i < nums.length; i++) {
+			btnnums[i].index = i;
+			btnnums[i].onclick = function() {
+				ansnum= ansnum + nums[this.index].innerHTML;
+			};
+		}
+		scrans.innerHTML = ansnum;
+
+	</script>
+</body>
+</html>
