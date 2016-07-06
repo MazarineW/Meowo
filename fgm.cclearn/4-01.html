@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160703</title>
+	<style type="text/css">
+		nav {
+			background: linear-gradient(to top, #245e99 50%, #c5d4e4);
+			width: 800px;
+			height: 40px;
+			border-radius: 10px;
+		}
+		nav li {
+			list-style-type: none;
+			display: inline-block;
+			float: left;
+			padding: 5px 15px;
+		/*	width: 70px;*/
+			
+		}
+		nav li .nav {
+			color: #fff;
+			text-decoration: none;
+			line-height: 30px;
+		}
+		nav li .nav:after {
+			display: inline-block;
+			content: " ";
+			width: 1px;
+			height: 20px;
+			background: linear-gradient(to bottom, #245e99, #c5d4e4 50%,#245e99);
+			position: relative;
+			left: 15px;
+		}
+		/*nav li .nav:last-child:after {
+			display: none;
+		}*/
+		.subnav {
+			position: absolute;
+			border: 1px #96b6d6 solid;
+			background: linear-gradient(to top, #96b6d6, #fff 50%);
+			border-radius: 5px;
+			padding: 5px;
+			display: none;
+		}
+		.subnav a {
+			color: #4c729f;
+			text-decoration: none;
+		}
+		.subnav span {
+			color: #4c729f;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="" class="nav">站长之家</a></li>
+			<li>
+				<a href="" class="nav">行业资讯</a>
+				<p class="subnav">
+					<a href="">业界动态</a><span>|</span>
+					<a href="">收购融资</a><span>|</span>
+					<a href="">门户动态</a><span>|</span>
+					<a href="">搜索引擎</a><span>|</span>
+					<a href="">网络游戏</a><span>|</span>
+					<a href="">电子商务</a><span>|</span>
+					<a href="">广告传媒</a><span>|</span>
+					<a href="">厂商开发</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">站长在线</a>
+				<p class="subnav">
+					<a href="">站长报道</a><span>|</span>
+					<a href="">好站推荐</a><span>|</span>
+					<a href="">站长聚会</a><span>|</span>
+					<a href="">站长访谈</a><span>|</span>
+					<a href="">站长茶馆</a><span>|</span>
+					<a href="">网站排行</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">网站运营</a>
+				<p class="subnav">
+					<a href="">建站经验</a><span>|</span>
+					<a href="">策划盈利</a><span>|</span>
+					<a href="">搜索优化</a><span>|</span>
+					<a href="">网站推广</a><span>|</span>
+					<a href="">免费资源</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">设计在线</a>
+				<p class="subnav">
+					<a href="">酷站推荐</a><span>|</span>
+					<a href="">网页设计</a><span>|</span>
+					<a href="">WEB标准</a><span>|</span>
+					<a href="">视频处理</a><span>|</span>
+					<a href="">设计活动</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">网络编程</a>
+				<p class="subnav">
+					<a href="">Asp编程</a><span>|</span>
+					<a href="">Php编程</a><span>|</span>
+					<a href="">.Net编程</a><span>|</span>
+					<a href="">Xml编程</a><span>|</span>
+					<a href="">Access</a><span>|</span>
+					<a href="">Mssql</a><span>|</span>
+					<a href="">Mysql</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">联盟资讯</a>
+				<p class="subnav">
+					<a href="">联盟动态</a><span>|</span>
+					<a href="">联盟介绍</a><span>|</span>
+					<a href="">联盟点评</a><span>|</span>
+					<a href="">网赚技巧</a>
+				</p>
+			</li>
+			<li>
+				<a href="" class="nav">服务器</a>
+				<p class="subnav">
+					<a href="">Asp编程</a><span>|</span>
+					<a href="">Php编程</a><span>|</span>
+					<a href="">.Net编程</a><span>|</span>
+					<a href="">Xml编程</a><span>|</span>
+					<a href="">Access</a><span>|</span>
+					<a href="">Mssql</a><span>|</span>
+					<a href="">Mysql</a>
+				</p>
+			</li>
+		</ul>
+	</nav>
+	<script type="text/javascript">
+		var subnavs = document.getElementsByClassName("subnav");
+		var navs = document.getElementsByClassName("nav");
+		var timer;
+		var subnav
+		for (var i = 1; i < navs.length; i++) {
+			navs[i].index = i;
+			navs[i].onmouseover = function showSubnav() {
+				for (var n = 0; n < subnavs.length; n++) {
+					subnavs[n].style.display = "none";
+				}
+				clearTimeout(timer);
+				subnav = subnavs[this.index-1];
+				subnav.style.display = "block";
+			}
+			navs[i].onmouseout = function() {			
+				timer = setTimeout(function() {
+					subnav.style.display = "none";
+				},1000);
+			}
+
+		}
+		
+
+
+	</script>
+</body>
+</html>

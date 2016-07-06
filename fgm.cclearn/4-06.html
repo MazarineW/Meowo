@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160704</title>
+	<style type="text/css">
+		div {
+			border: 2px #ff6600 solid;
+			width: 300px;
+			background-color: #fef4eb;
+		}
+		h2 {
+			color: #ff6600;
+			height: 20px;
+			font-size: 18px;
+			line-height: 20px;
+			background-color: #ffebd7;
+			border-bottom: 2px #ff6600 solid;
+		}
+		label {
+			display: block;
+			text-align: right;
+			padding-right: 30px;
+			height: 40px;
+		}
+		input {
+			height: 30px;
+			border-radius: 5px;
+			background-color: #fffdec;
+		}
+		input.focus {
+			background-color: #fccfd9;
+		}
+		#btn {
+			display: block;
+			width: 100px;
+			height: 30px;
+			background-color: #ff6600;
+			border-radius: 10px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h2>用户登录</h2>
+		<label>用户名：<input></input></label>
+		<label>密码：<input></input></label>
+		<input type="button" value="登录" id="btn"></input>
+	</div>
+	<script type="text/javascript">
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length-1; i++) {
+			inputs[i].onfocus = function () {
+				this.className = "focus";
+			};
+			inputs[i].onblur = function() {
+				this.className = "";
+			};
+		}
+	</script>
+</body>
+</html>
