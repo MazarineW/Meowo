@@ -49,7 +49,7 @@
 		//删除/添加第一项
 		inputs[0].onclick = function() {
 			temp = getArray(divs[0].innerHTML);
-			if(f1 = true) {
+			if(f1 == true) {
 				temp.shift();
 				this.value = this.value.replace("删除","添加");
 				f1 = false;
@@ -63,7 +63,7 @@
 		//删除/添加最后一项
 		inputs[1].onclick = function() {
 			temp = getArray(divs[0].innerHTML);
-			if(f2 = true) {
+			if(f2 == true) {
 				temp.pop();
 				this.value = this.value.replace("删除","添加");
 				f2 = false;
@@ -80,10 +80,6 @@
 			divs[1].innerHTML = temp.concat(temp).toString().replace(/\s/g,"");
 			//替换掉空格
 		};
-		inputs[3].onclick = function() {
-			temp = getArray(divs[1].innerHTML);
-			temp.length = 10;
-		}
 		//还原
 		inputs[3].onclick = function() {
 			temp = getArray(divs[1].innerHTML);
@@ -91,17 +87,26 @@
 			divs[1].innerHTML = temp.join();
 		};
 
+		//第三组数据还原
+		inputs[4].onclick = function ()
+		{
+			temp = ["red","green","blue","white","yellow","black","brown"];
+			//输出
+			divs[2].innerHTML = temp.join()
+		};
+	
+
 		//删除前三项
 		inputs[5].onclick = function() {
 			temp = getArray(divs[2].innerHTML);
 			temp.splice(0, 3);
-			div[2].innerHTML = temp.join();
+			divs[2].innerHTML = temp.join();
 		};
 		// 删除第二至三项
 		inputs[6].onclick = function() {
 			temp = getArray(divs[2].innerHTML);
 			temp.splice(1, 2);
-			div[2].innerHTML = temp.join();
+			divs[2].innerHTML = temp.join();
 		};
 		// 第二项后插入
 		inputs[7].onclick = function() {

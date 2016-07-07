@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160707</title>
+	<style type="text/css">
+		#exp,#stars,#score {
+			float: left;
+		}
+		span {
+			color: red;
+			font-weight: bold;
+		}
+		#stars li {
+			display: inline-block;
+			background-image: url(images/star.png);
+			width: 20px;
+			height: 20px;
+		}
+		#stars .light {
+			background-position: 0 -27px;
+		}
+		#evas {
+			clear: both;
+			position: relative;
+		}
+		#evas li {
+			list-style-type: none;
+			width: 159px;
+			height: 60px;
+			padding: 7px 10px 0;
+			position: absolute;
+			top: -10px;
+			font-size: 90%;
+			display: none;
+			background: url(images/icon.gif) no-repeat;
+		}
+		#evas .show {
+			display: block;
+		}
+		#evas #eva1{
+			left: 85px;
+		}
+		#evas #eva2{
+			left: 110px;
+		}
+		#evas #eva3{
+			left: 135px;
+		}
+		#evas #eva4{
+			left: 160px;
+		}
+		#evas #eva5{
+			left: 185px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p id="exp">点击星星就能打分</p>
+		<ul id="stars">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<p id="score"></p>
+		<ul id="evas">
+			<li id="eva1">
+				差得太离谱，与卖家描述的严重不符，非常不满
+			</li>
+			<li id="eva2">
+				部分有破损，与卖家描述的不符，不满意
+			</li>
+			<li id="eva3">
+				质量一般，没有卖家描述的那么好
+			</li>
+			<li id="eva4">
+				质量不错，与卖家描述的基本一致，还是挺满意的
+			</li>
+			<li id="eva5">
+				质量非常好，与卖家描述的完全一致，非常满意
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var stars = document.getElementById("stars").getElementsByTagName("li");
+		var evas = document.getElementById("evas").getElementsByTagName("li");
+		var k;
+		var score = document.getElementById("score");
+		var score_span = score.getElementsByTagName("span");
+		for (var i = 0; i < stars.length; i++) {
+			stars[i].index = i;
+			stars[i].onmouseover = function() {
+				evas[this.index].className = "show";
+				//光标移入，左侧星星全都点亮
+				for (var j = 0; j < stars.length; j++) {
+					if (j <= this.index ) {
+						stars[j].className = "light";
+					} else {
+						stars[j].className = "";
+					}
+				}
+			};
+			stars[i].onmouseout = function() {
+				evas[this.index].className = "";
+				for (var j = 0; j < stars.length; j++) {
+					if (j <= k ) {
+						stars[j].className = "light";
+					} else {
+						stars[j].className = "";
+					}
+				}
+			};
+			//点击后左侧星星亮起
+			stars[i].onclick = function() {
+				k = this.index;
+				score.innerHTML = "<span>"+ (k + 1) + "分" + "</span>" + "("+ evas[k].innerHTML + ")";
+				for (var j = 0; j < stars.length; j++) {
+					if (j <= this.index ) {
+						stars[j].className = "light";
+
+					} else {
+						stars[j].className = "";
+					}
+				}
+				
+			};
+		}
+	</script>
+</body>
+</html>
