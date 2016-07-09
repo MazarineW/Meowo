@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160709</title>
+	<style type="text/css">
+		body {
+			overflow: hidden;
+		}
+		ul {
+			width: 80%;
+			margin: 20px auto;
+			list-style-type: none;
+		}
+		li {
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			margin: 10px;
+		}
+		img {
+			width: 200px;
+			height: 200px;
+		}
+		#img0 {
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="images/01.jpg" alt=""></li>
+		<li><img src="images/02.jpg" alt=""></li>
+		<li><img src="images/03.jpg" alt=""></li>
+		<li><img src="images/04.jpg" alt=""></li>
+	</ul>
+	<img src="images/01.jpg" id="img0">
+
+	<script type="text/javascript">
+		var imgs = document.getElementsByTagName("img");
+		var img0 = document.getElementById("img0");
+		for (var i = 0; i < imgs.length; i++) {
+			imgs[i].index = i;
+			imgs[i].onmousemove = function(event) {
+				var picsrc = imgs[this.index].src;
+				img0.src = picsrc;
+				img0.style.display = "block";
+				img0.style.left = event.clientX+ 410 < window.innerWidth ? (event.clientX + 10) + "px" : (event.clientX-400) + "px";
+				img0.style.top = event.clientY+ 410 < window.innerHeight ? (event.clientY + 10) + "px" : (event.clientY-400) + "px";
+			}
+			imgs[i].onmouseout = function() {
+				img0.style.display = "none";
+			}
+		}
+	</script>
+</body>
+</html>
