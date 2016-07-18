@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160718</title>
+	<style type="text/css">
+		#color {
+			width: 180px;
+			border: #ccc 2px solid;
+			border-radius: 10px;
+			padding: 20px;
+		}
+		input {
+			display: block;
+			width: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div id="color">
+		<h3>改变背景颜色</h3>
+		<label for="red">R</label>
+		<input type="range" min="0" max="255" name="" id="red" value="255">
+		<label for="green">G</label>
+		<input type="range" min="0" max="255" name="" id="green" value="255">
+		<label for="blue">B</label>
+		<input type="range" min="0" max="255" name="" id="blue" value="255">
+		<label for="opacity">opacity</label>
+		<input type="range" min="0" max="1" name="" id="opacity" step="0.01" value="1">
+	</div>
+	<script type="text/javascript">
+		var red = document.getElementById("red");
+		var green = document.getElementById("green");
+		var blue = document.getElementById("blue");
+		var opacity = document.getElementById("opacity");
+		document.onmouseup = function() {
+			var r = red.value;
+			var g = green.value;
+			var b = blue.value;
+			var o = opacity.value;
+			document.body.style.backgroundColor = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+		}
+		
+	</script>
+</body>
+</html>

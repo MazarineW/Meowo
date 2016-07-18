@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160718</title>
+	<style type="text/css">
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: #000;
+			cursor: move;
+			position: absolute;
+		}
+		.move {
+			opacity: 0.7;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		box.onmousedown = function() {
+			var left = event.clientX - box.offsetLeft;
+			var top = event.clientY - box.offsetTop;
+			document.onmouseover = function() {
+				box.className = "move";
+				var x = event.clientX;
+				var y = event.clientY;
+				box.style.left = x - left + "px";
+				box.style.top = y - top + "px";
+			}
+		}
+		document.onmouseup = function() {
+			this.onmouseover = null;
+			box.className = "";
+		}
+
+	</script>
+</body>
+</html>
