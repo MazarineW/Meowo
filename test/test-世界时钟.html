@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160720</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			text-align: center;
+		}
+		p {
+			font-size: 150px;
+			font-weight: bold;
+		}
+		p:last-child {
+			font-size: 50px;
+		}
+		select {
+			width: 120px;
+			height: 50px;
+			font-size: 25px;
+			line-height: 25px;
+			border: 2px #000 solid;
+			padding: 5px 5px 5px 15px;
+			background-color: #fff;
+			border-radius: 5px;
+			position: absolute;
+			top: 100px;
+			left: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<select id="position">
+			<option value="北京">北京</option>
+			<option value="巴黎">巴黎</option>
+			<option value="伦敦">伦敦</option>
+			<option value="纽约">纽约</option>
+		</select>
+		<p><span id="h"></span>:<span id="mi"></span>:<span id="s"></span></p>
+		<p><span id="y"></span>年<span id="m"></span>月<span id="d"></span>日</p>
+	</div>
+	<script type="text/javascript">
+
+		var y = document.getElementById("y");
+		var m = document.getElementById("m");
+		var d = document.getElementById("d");
+		var h = document.getElementById("h");
+		var mi = document.getElementById("mi");
+		var s = document.getElementById("s");
+		var position = document.getElementById("position")
+		var offsets = [0,-7,-8,-13];
+		var j = 0;
+		position.onchange = showtime;
+		function showtime() {
+			if (this.selectedIndex != undefined) {
+				j = this.selectedIndex;
+			}
+			var date = new Date();
+			var semillisec = date.getTime() + 60*60*1000*offsets[j];
+			var sedate = new Date(semillisec);
+
+			
+			var year = sedate.getFullYear();
+			var month = parseInt(sedate.getMonth()) + 1;
+			var day = sedate.getDate();
+			var hour = sedate.getHours();
+			var mini = sedate.getMinutes();
+			var sec = sedate.getSeconds();
+
+			
+			y.innerHTML = year;
+			m.innerHTML = month;
+			d.innerHTML = day;
+			h.innerHTML = hour < 10 ? "0" + hour : hour;
+			mi.innerHTML = mini < 10 ? "0" + mini : mini;
+			s.innerHTML = sec < 10 ? "0" + sec : sec;
+		}
+		window.onload = showtime;
+		setInterval(showtime,1000);
+
+
+
+		
+	</script>
+</body>
+</html>
