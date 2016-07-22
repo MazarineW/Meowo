@@ -1,0 +1,119 @@
+@import "compass/reset";
+@import "compass/css3";
+
+$bg-color: #fff;
+$text-color: #333;
+$border-color: #999;
+
+
+body {
+	width: 90%;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2em;
+	padding: 10px 0;
+}
+h2 {
+	font-size: 1.6em;
+	padding: 5px 0;
+}
+h3 {
+	font-size: 1.2em;
+	padding: 3px 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+header {
+	margin: 20px 0 10 0;
+}
+nav {
+	height: 50px;
+	ul {
+		float: left;
+		li {
+			float: left;
+			display: block;
+			width: 120px;
+			height: 40px;
+			background-color: $bg-color;
+			border: 2px solid $border-color;
+			border-radius: 10px;
+			margin: 0 10px;
+			line-height: 40px;
+			text-align: center;
+		}
+	}
+}
+
+#main-gallery {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	background-color: $bg-color;
+	border: 10px solid $border-color;
+	position: relative;
+	margin-bottom: 20px;
+	li {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		img {
+			opacity: 0;
+			transition: opacity 1s linear;
+		}
+		.show {
+			opacity: 1;
+			transition: opacity 1s linear;
+		}
+	}
+}
+aside {
+	width: 260px;
+	background-color: $border-color;
+	color: $bg-color;
+	float: left;
+	padding: 20px 30px; 
+	li {
+		height: 20px;
+		line-height: 20px;
+		margin: 10px 5px;
+		border-bottom: 1px $bg-color solid;
+	}
+}
+section {
+	border: dotted 2px $border-color;
+	border-radius: 10px;
+	margin-left: 340px;
+	padding: 10px;
+
+	article {
+		margin: 10px;
+		h3 {
+			border-bottom: 1px double $border-color;
+		}
+	}
+}
+
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	margin: 20px;
+	color: $border-color;
+	ul {
+		list-style: none;
+		li {
+			display: inline-block;
+			padding: 0 5px;
+			border-right: 1px solid $border-color;
+		}
+		li:last-child {
+			border-right: none;
+		}
+	}
+}
