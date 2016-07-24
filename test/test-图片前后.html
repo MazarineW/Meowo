@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160724</title>
+	<style type="text/css">
+		#gallery {
+			width: 600px;
+			height: 400px;
+			overflow: hidden;
+			position: relative;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			left: 600px;
+		}
+		.show {
+			left: 0;
+			transition: 1s left;
+		}
+		a {
+			display: block;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background-color: rgba(0,0,0,0.3);
+			z-index: 20;
+			line-height: 35px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 40px;
+			color: #fff;
+			display: none;
+		}
+		#prev {
+			top: 150px;
+			border-radius: 0 5px 5px 0;
+		}
+		#next {
+			top: 150px;
+			right: 0;
+			border-radius: 5px 0 0 5px;
+		}
+		#gallery:hover a {
+			display: block;
+		}
+		a:hover {
+			background-color: rgba(0,0,0,0.6);
+		}
+	</style>
+</head>
+<body>
+	<div id="gallery">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<a href="" id="prev">&lt;</a>
+		<a href="" id="next">&gt;</a>
+	</div>
+	<script type="text/javascript">
+		var gallery = document.getElementById("gallery");
+		var imgs = gallery.getElementsByTagName("img");
+		var prevbtn = document.getElementById("prev");
+		var nextbtn = document.getElementById("next");
+		var a = 0;
+
+		prevbtn.onclick = function() {
+			clearInterval(timer);
+			prevPic();
+			timer = setInterval(nextPic,2000);
+			return false;
+		}
+
+		nextbtn.onclick = function() {
+			clearInterval(timer);
+			nextPic();
+			timer = setInterval(nextPic,2000);
+			return false;
+		}
+		function nextPic() {
+			a = a < imgs.length-1 ? a + 1 : 0;
+			showPic(a);
+		}
+		function prevPic() {
+			a = a > 0 ? a - 1 : imgs.length-1;
+			showPic(a);
+		}
+		function showPic(a) {
+			for (var i = 0; i < imgs.length; i++) {
+				imgs[i].className = "";
+			}
+			imgs[a].className = "show";
+		}
+		timer = setInterval(nextPic,2000);
+	</script>
+</body>
+</html>

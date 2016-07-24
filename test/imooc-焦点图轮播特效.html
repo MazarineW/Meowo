@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160724</title>
+	<style type="text/css">
+		#gallery {
+			width: 600px;
+			height: 400px;
+			overflow: hidden;
+			position: relative;
+		}
+		#imglist {
+			position: absolute;
+			left: -600px;
+		}
+		/*前后按钮样式*/
+		a {
+			display: block;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background-color: rgba(0,0,0,0.3);
+			z-index: 20;
+			line-height: 35px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 40px;
+			color: #fff;
+			display: none;
+		}
+		#prev {
+			top: 150px;
+			border-radius: 0 5px 5px 0;
+		}
+		#next {
+			top: 150px;
+			right: 0;
+			border-radius: 5px 0 0 5px;
+		}
+		#gallery:hover a , #gallery:hover #buttons {
+			display: block;
+		}
+		a:hover {
+			background-color: rgba(0,0,0,0.6);
+		}
+		#buttons {
+			position: absolute;
+			top: 350px;
+			left: 400px;
+			display: none;
+		}
+		span {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			margin: 5px;
+			border-radius: 100%;
+			background-color: #ccc;
+			z-index: 20;
+		}
+		.on {
+			background-color: #ffad66;
+		}
+	</style>
+</head>
+<body>
+	<div id="gallery">
+		<div id="imglist" style="left: -600px;">
+			<img src="images/6.jpg" alt="">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+			<img src="images/5.jpg" alt="">
+			<img src="images/6.jpg" alt="">
+			<img src="images/1.jpg" alt="">
+		</div>
+		<div id="buttons">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<a href="javascript:;" id="prev">&lt;</a>
+		<a href="javascript:;" id="next">&gt;</a>
+	</div>
+	<script type="text/javascript">
+		var gallery = document.getElementById("gallery");
+		var imglist = document.getElementById("imglist")
+		var prevbtn = document.getElementById("prev");
+		var nextbtn = document.getElementById("next");
+		var buttons = document.getElementById("buttons").getElementsByTagName("span");
+		var a = 1;
+		var animated = false;
+		var timer;
+
+		function showButton() {
+			for (var i = 0; i < buttons.length; i++) {
+				if (buttons[i].className == "on") {
+					buttons[i].className = "";
+					break;
+				}
+			}
+			buttons[a - 1].className = "on";
+		}
+
+		function animate(offset) {
+			animated = true;
+			var newleft = parseInt(imglist.style.left) + offset;
+			var time = 300;
+			var interval = 10;
+			var speed = offset / (time / interval);
+			function go() {
+				if ((speed < 0 && parseInt(imglist.style.left) > newleft) || (speed > 0 && parseInt(imglist.style.left) < newleft)) {
+					imglist.style.left = parseInt(imglist.style.left) + speed + "px";
+					setTimeout(go,interval);
+				} else {
+					animated = false;
+					imglist.style.left = newleft + "px";
+					if (newleft > -600) {
+						imglist.style.left = -3600 + "px";
+					}
+					if (newleft < -3600) {
+						imglist.style.left = -600 + "px";
+					}
+				}
+			}
+			go();
+		}
+
+		function play() {
+			timer = setInterval(function() {
+				next.onclick();
+			},2000);
+		}
+
+		function stop() {
+			clearInterval(timer);
+		}
+
+		nextbtn.onclick = function() {
+			if (a == 6) {
+				a = 1;
+			} else {
+				a += 1;
+			}
+			showButton();
+			if (animated == false) {
+				animate(-600);
+			}
+		}
+		prevbtn.onclick = function() {
+			if (a == 1) {
+				a = 6;
+			} else {
+				index -= 1;
+			}
+			showButton();
+			if (animated == false) {
+				animate(600);
+			}
+		}
+
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].onclick = function() {
+				if (this.className == "on") {
+					return;
+				}
+				var myindex = parseInt(this.index);
+				var offset = -600 * (myindex - a);
+				animate(offset);
+				a = myindex;
+				if (animated == false) {
+					showButton();
+				}
+			}
+		}
+
+		gallery.onmouseover = stop;
+		gallery.onmouseout = play;
+		window.onload = function() {
+			play();
+		};
+	</script>
+</body>
+</html>
