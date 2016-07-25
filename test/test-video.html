@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160625</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: #ccc;
+		}
+		#box {
+			width: 600px;
+			margin: 0 auto;
+		}
+		#contro {
+			width: 600px;
+			height: 50px;
+			line-height: 50px;
+			background-color: #212121;
+		}
+		input {
+			width: 50px;
+			margin-right: 10px;
+		}
+		input:first-child {
+			margin-left: 30px;
+		}
+		progress {
+			width: 300px;
+			margin-right: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<video width="600px" height="400px" id="uku">
+			<source src="videos/small.mp4" type="video/mp4">
+		</video>
+		<div id="contro">
+			<input type="button" name="" id="play" value="播放">
+			<input type="button" name="" id="stop" value="停止">
+			<progress value="50" max="100"></progress>
+			<select id="speed">
+				<option value="speed1">1倍速</option>
+				<option value="speed0.5">0.5倍速</option>
+				<option value="speed1.5">1.5倍速</option>
+			</select>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var video = document.getElementById("uku");
+		var play = document.getElementById("play");
+		var stop = document.getElementById("stop");
+		var progress = document.getElementsByTagName("progress")[0];
+		var speed = document.getElementById("speed");
+		//播放、暂停键
+		play.onclick = function() {
+			if (play.value == "暂停") {
+				video.pause();
+				play.value = "播放";
+			} else {
+				video.play();
+				play.value = "暂停";
+			}
+		}
+
+		//停止键
+		stop.onclick = function() {
+			video.pause();
+			play.value = "播放";
+			video.currentTime = 0;
+		}
+
+		//播放速度调节
+		//option改变时触发select的onchange
+		speed.onchange = function() {
+			switch (speed.selectedIndex)
+			{
+			case 0:
+				video.playbackRate = 1;
+				break;
+			case 1:
+				video.playbackRate = 0.5;
+				break;
+			case 2:
+				video.playbackRate = 1.5;
+				break;
+			}
+		}
+		
+		//播放进度条
+		var timer = setInterval(function() {
+			progress.value = video.currentTime / video.duration * 100;
+			//播放结束后按键自动复位
+			if (video.currentTime == video.duration) {
+				video.pause();
+				play.value = "播放";
+				video.currentTime = 0;
+			}
+		},100)
+	</script>
+</body>
+</html>

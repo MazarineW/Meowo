@@ -12,7 +12,13 @@
 		}
 		#imglist {
 			position: absolute;
-			left: -600px;
+			width: 4200px;
+			height: 400px;
+		}
+		img {
+			float: left;
+			width: 600px;
+			height: 400px;
 		}
 		/*前后按钮样式*/
 		a {
@@ -52,12 +58,13 @@
 		}
 		span {
 			display: inline-block;
-			width: 10px;
-			height: 10px;
-			margin: 5px;
+			width: 15px;
+			height: 15px;
+			margin: 3px;
 			border-radius: 100%;
 			background-color: #ccc;
 			z-index: 20;
+			border: 1px #fff solid;
 		}
 		.on {
 			background-color: #ffad66;
@@ -77,7 +84,7 @@
 			<img src="images/1.jpg" alt="">
 		</div>
 		<div id="buttons">
-			<span></span>
+			<span class="on"></span>
 			<span></span>
 			<span></span>
 			<span></span>
@@ -96,7 +103,10 @@
 		var a = 1;
 		var animated = false;
 		var timer;
-
+		//自定义index属性
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].setAttribute("index",i+1);
+		}
 		function showButton() {
 			for (var i = 0; i < buttons.length; i++) {
 				if (buttons[i].className == "on") {
@@ -108,6 +118,9 @@
 		}
 
 		function animate(offset) {
+			if (offset == 0) {
+				return;
+			}
 			animated = true;
 			var newleft = parseInt(imglist.style.left) + offset;
 			var time = 300;
@@ -118,7 +131,6 @@
 					imglist.style.left = parseInt(imglist.style.left) + speed + "px";
 					setTimeout(go,interval);
 				} else {
-					animated = false;
 					imglist.style.left = newleft + "px";
 					if (newleft > -600) {
 						imglist.style.left = -3600 + "px";
@@ -126,6 +138,7 @@
 					if (newleft < -3600) {
 						imglist.style.left = -600 + "px";
 					}
+					animated = false;
 				}
 			}
 			go();
@@ -156,7 +169,7 @@
 			if (a == 1) {
 				a = 6;
 			} else {
-				index -= 1;
+				a -= 1;
 			}
 			showButton();
 			if (animated == false) {
@@ -169,13 +182,11 @@
 				if (this.className == "on") {
 					return;
 				}
-				var myindex = parseInt(this.index);
+				var myindex = parseInt(this.getAttribute("index"));
 				var offset = -600 * (myindex - a);
 				animate(offset);
 				a = myindex;
-				if (animated == false) {
-					showButton();
-				}
+				showButton();
 			}
 		}
 
