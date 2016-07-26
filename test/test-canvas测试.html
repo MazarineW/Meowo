@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160726</title>
+	<style type="text/css">
+		canvas {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="mycanvas" width="600px" height="600px"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("mycanvas");
+		var context = canvas.getContext("2d");
+
+		context.moveTo(10,10);
+		context.lineTo(400,40);
+		context.lineTo(250,50);
+		context.closePath();
+		//填充内部
+		context.fillStyle = "blue";
+		context.fill();
+		//绘制轮廓
+		context.lineWidth = 5;
+		context.strokeStyle = "yellow";
+		context.stroke();
+		//填充矩形
+		context.beginPath();
+		context.fillStyle = "green";
+		context.fillRect(200,200,100,200);
+		//绘制圆弧
+		context.beginPath();
+		var centerX = 150;
+		var centerY = 300;
+		var radius = 100;
+		var startingAngle = 1.25 * Math.PI;
+		var endingAngle = 1.75 * Math.PI;
+		context.arc(centerX, centerY, radius, startingAngle, endingAngle);
+		context.stroke();
+		//贝塞尔曲线
+		context.beginPath();
+		context.strokeStyle = "blue";
+		context.moveTo(62,242);
+		var control1_x = 187;
+		var control1_y = 32;
+		var control2_x = 429;
+		var control2_y = 480;
+		var endPointX = 365;
+		var endPointY = 133;
+		context.bezierCurveTo(control1_x, control1_y, control2_x, control2_y, endPointX, endPointY);
+		context.stroke();
+	</script>
+</body>
+</html>

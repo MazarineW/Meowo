@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图画本</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			background: url(images/3.jpg);
+			padding: 50px;
+			font-size: 1.5em;
+		}
+		canvas {
+			background-color: #fff;
+			border: 5px inset #ccc;
+		}
+		.toolbar {
+			width: 590px;
+			height: 60px;
+			background-color: #fff;
+			text-align: center;
+			line-height: 60px;
+			margin-bottom: 20px;
+			padding: 10px;
+		}
+		input {
+			width: 200px;
+			height: 50px;
+			font-size: 0.8em;
+			border-radius: 10px;
+		}
+		.selected {
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="toolbar">
+			<span>Pen Color - </span>
+			<img src="images/redpen.png" alt="" id="redpen" onclick="changeColor('rgb(212,21,29)',this)">
+			<img src="images/greenpen.png" alt="" id="greenpen" onclick="changeColor('rgb(131,190,61)',this)">
+			<img src="images/bluepen.png" alt="" id="bluepen" onclick="changeColor('rgb(0,86,166)',this)">
+		</div>
+		<div class="toolbar">
+			<span>Pen Thickness - </span>
+			<img src="images/pen1.png" alt="" id="pen1" onclick="changeThickness(1,this)">
+			<img src="images/pen2.png" alt="" id="pen2" onclick="changeThickness(3,this)">
+			<img src="images/pen3.png" alt="" id="pen3" onclick="changeThickness(5,this)">
+		</div>
+		<canvas id="mycanvas" width="600px" height="400px"></canvas>
+		<div>
+			<input type="button" name="" value="Clear The Canvas" onclick="clearCanvas()">
+		</div>
+	</div>
+	<script type="text/javascript">
+		var canvas = document.getElementById("mycanvas");
+		var context = canvas.getContext("2d");
+		//添加用于实现绘图操作的事件处理程序
+		canvas.onmousedown = startDrawing;
+		canvas.onmouseup = stopDrawing;
+		canvas.onmouseout = stopDrawing;
+		canvas.onmousemove = draw;
+		context.strokeStyle = "rgb(0,86,166)";
+
+		//changeColor函数
+		var previousColorElement;
+		function changeColor(color,imgElement) {
+			context.strokeStyle = color;
+			imgElement.className = "selected";
+			if (previousColorElement != null) {
+				previousColorElement.className = "";
+			}
+			previousColorElement = imgElement;
+		}
+
+		//changeThickness函数
+		var previousThicknessElement;
+		function changeThickness(thickness,imgElement) {
+			context.lineWidth = thickness;
+			imgElement.className = "selected";
+			if (previousThicknessElement != null) {
+				previousThicknessElement.className = "";
+			}
+			previousThicknessElement = imgElement;
+		}
+		//绘图
+		var isDrawing = false;
+		function startDrawing(e) {
+			isDrawing = true;
+			context.beginPath();
+			//鼠标相对页面的位置减去画框相对页面的位置
+			context.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
+		}
+		function draw(e) {
+			if (isDrawing == true) {
+				var x = e.pageX - canvas.offsetLeft;
+				var y = e.pageY - canvas.offsetTop;
+				context.lineTo(x,y);
+				context.stroke();
+			}
+		}
+		function stopDrawing() {
+			isDrawing = false;
+		}
+		function clearCanvas() {
+			context.clearRect(0, 0, canvas.width, canvas.height)
+		}
+	</script>
+</body>
+</html>
