@@ -66,89 +66,106 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 9, ../sass/style.scss */
 body {
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto;
+  color: #333;
+  background-color: #fff;
 }
 
-/* line 14, ../sass/style.scss */
+/* line 16, ../sass/style.scss */
 h1 {
-  font-size: 2.2em;
+  font-size: 2.5em;
   padding: 10px 0;
 }
 
-/* line 18, ../sass/style.scss */
+/* line 20, ../sass/style.scss */
 h2 {
   font-size: 1.8em;
   padding: 5px 0;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
 h3 {
   font-size: 1.5em;
   padding: 3px 0;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 28, ../sass/style.scss */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* line 30, ../sass/style.scss */
+/* line 32, ../sass/style.scss */
 header {
   margin: 20px 0 10 0;
 }
-
-/* line 33, ../sass/style.scss */
-nav {
-  height: 50px;
+/* line 34, ../sass/style.scss */
+header a.logo {
+  position: relative;
 }
-/* line 35, ../sass/style.scss */
-nav ul {
-  float: left;
+/* line 36, ../sass/style.scss */
+header a.logo #logo {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-/* line 37, ../sass/style.scss */
-nav ul li {
-  float: left;
-  display: block;
-  width: 120px;
-  height: 40px;
-  background-color: #fff;
-  border: 2px solid #999;
-  border-radius: 10px;
-  margin: 0 10px;
-  line-height: 40px;
-  text-align: center;
-}
-
-/* line 52, ../sass/style.scss */
-#header-gallery {
+/* line 42, ../sass/style.scss */
+header #header-gallery {
   width: 100%;
   height: 300px;
   overflow: hidden;
   background-color: #fff;
   border: 10px solid #999;
   position: relative;
-  margin-bottom: 20px;
 }
-/* line 60, ../sass/style.scss */
-#header-gallery li {
+/* line 49, ../sass/style.scss */
+header #header-gallery li {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 66, ../sass/style.scss */
-#header-gallery li img {
+/* line 55, ../sass/style.scss */
+header #header-gallery li img {
   opacity: 0;
   transition: opacity 1s linear;
 }
-/* line 70, ../sass/style.scss */
-#header-gallery li .show {
+/* line 59, ../sass/style.scss */
+header #header-gallery li .show {
   opacity: 1;
   transition: opacity 1s linear;
 }
 
-/* line 76, ../sass/style.scss */
+/* line 66, ../sass/style.scss */
+nav {
+  height: 45px;
+  margin: 10px 0;
+}
+/* line 69, ../sass/style.scss */
+nav ul {
+  float: left;
+}
+/* line 71, ../sass/style.scss */
+nav ul li {
+  float: left;
+  display: block;
+  width: 150px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 10px;
+  margin: 0 20px;
+  line-height: 40px;
+  text-align: center;
+}
+/* line 83, ../sass/style.scss */
+nav ul li:hover {
+  background-color: #999;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* line 92, ../sass/style.scss */
 aside {
   width: 40%;
   max-width: 260px;
@@ -157,7 +174,7 @@ aside {
   float: left;
   padding: 20px 30px;
 }
-/* line 83, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 aside li {
   height: 20px;
   line-height: 20px;
@@ -165,28 +182,28 @@ aside li {
   border-bottom: 1px #fff solid;
 }
 
-/* line 92, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
 section {
   border: dotted 2px #999;
   border-radius: 10px;
   margin-left: 340px;
   padding: 10px;
 }
-/* line 98, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 section article {
   margin: 10px;
 }
-/* line 100, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 section article h3 {
   border-bottom: 1px double #999;
 }
-/* line 103, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 section article p {
   text-indent: 2em;
   line-height: 1.5em;
 }
 
-/* line 111, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 dl dt {
   margin: 10px;
   padding-left: 30px;
@@ -196,7 +213,7 @@ dl dt {
   background: url(../images/323-circle-right.png) left center no-repeat;
 }
 
-/* line 121, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 #body-gallery {
   clear: both;
   width: 100%;
@@ -204,20 +221,20 @@ dl dt {
   overflow: hidden;
   position: relative;
 }
-/* line 127, ../sass/style.scss */
+/* line 143, ../sass/style.scss */
 #body-gallery #imglist {
   position: absolute;
   top: 0;
-  width: 3000px;
+  width: 3300px;
   height: 200px;
 }
-/* line 132, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 #body-gallery #imglist img {
   float: left;
   width: 300px;
   height: 200px;
 }
-/* line 138, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 #body-gallery a {
   display: block;
   position: absolute;
@@ -231,40 +248,40 @@ dl dt {
   font-size: 20px;
   color: #fff;
 }
-/* line 151, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 #body-gallery #prev {
   top: 80px;
   border-radius: 0 5px 5px 0;
 }
-/* line 155, ../sass/style.scss */
+/* line 171, ../sass/style.scss */
 #body-gallery #next {
   top: 80px;
   right: 0;
   border-radius: 5px 0 0 5px;
 }
-/* line 160, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 #body-gallery a:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* line 167, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 footer {
   text-align: center;
   font-size: 0.9em;
   margin: 20px;
   color: #999;
 }
-/* line 172, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 footer ul {
   list-style: none;
 }
-/* line 174, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 footer ul li {
   display: inline-block;
   padding: 0 5px;
   border-right: 1px solid #999;
 }
-/* line 179, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 footer ul li:last-child {
   border-right: none;
 }
