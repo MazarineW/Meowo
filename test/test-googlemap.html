@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160806</title>
+	
+	<style type="text/css">
+		#mapsurface {
+			width: 600px;
+			height: 400px;
+			border: solid 1px black;
+		}
+	</style>
+	<script type="text/javascript" src="http://maps.google.con/maps/api/js?sensor=true"></script>
+	<script type="text/javascript">
+		var results;
+		var map;
+		window.onload = function() {
+			results = document.getElementById("results");
+			//设置地图选项
+			var myOptions = {
+				zoom: 13,
+				mapTypedId: google.maps.mapTypedId.ROADMAP
+			};
+			//使用前面的选项创建地图
+			map = new google.maps.Map(document.getElementById("mapsurface"), myOptions);
+			//尝试取得用户的当前位置
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure);
+				results.innerHTML = "The search has begun.";
+			} else {
+				results.innerHTML = "This browswr dosen't support geolocation.";
+				goToDefaultLocation();
+			}
+		};
+
+		function geolocationSuccess(position) {
+			//把地理定位的位置转换为LatLng对象
+			location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			//在地图上显示这个点的位置
+			map.setCenter(location);
+			//创建信息气泡并设置其文本内容和地图坐标
+			var infowindow = new google.maps.InfoWindow();
+			infowindow.setPosition(location);
+			//显示地图气泡
+			infowindow.open(map);
+			results.innerHTML = "Now you're on the map.";
+		}
+	</script>
+</head>
+<body>
+	<p id="results">Where do you live?</p>
+	<div id="mapsurface"></div>
+</body>
+</html>
