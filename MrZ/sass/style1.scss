@@ -1,0 +1,144 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
+$title-color: #2e2e2e;
+$background-color: #f2f2f2;
+$text-color: #1c1c1c;
+
+@mixin article-title {
+	color: $title-color;
+	text-align: center;
+	margin: 1em auto .5em;
+	&:after {
+		content: " ";
+		display: block;
+		background-color: $title-color;
+		width: 60px;
+		height: 3px;
+		margin: 0.2em auto;
+		border-radius: 4px;
+	}
+
+}
+
+body {
+	font-family: "Microsoft YaHei", "FangSong", serif;
+	background-color: $background-color;
+	color: $text-color;
+	line-height: 1.5em;
+
+}
+
+header {
+	height: 3em;
+	background-color: $title-color;
+}
+
+
+
+
+.info {
+	width: 80%;
+	margin: 1em auto;
+
+	h3 {
+		font-family: "STCaiyun", "STXingkai", sans-serif;
+		font-size: 1.5em;
+		@include article-title
+	}
+
+	h4 {
+		color: $title-color;
+
+	}
+	li {
+		list-style-type: circle;
+		list-style-position: inside;
+		color: $text-color;
+	}
+	#basic {
+		float: left;
+		width: 40%;
+		font-size: 1.2em;
+		text-align: center;
+
+
+		li {
+			list-style-type: none;
+		}
+
+		#avatar {
+			overflow: hidden;
+			border-radius: 100%;
+			width:140px;
+			margin: 4em auto;
+			transition: transform 1s;
+		}
+		#avatar:hover {
+			transform: scale(1.6,1.6);
+
+		}
+		#name {
+			font-size: 1.4em;
+			font-family: "Copperplate Gothic Light",sans-serif;
+			font-weight: bold;
+			transition: transform 1s;
+		}
+		#name:hover {
+			transform: rotate(360deg);
+		}
+		a {
+			text-decoration: none;
+			color: $text-color;
+			
+		}
+		a:hover {
+			background-color:$title-color;
+			color: $background-color;
+		}
+	}
+	.right {
+		float: right;
+		width: 60%;
+		margin-bottom: 2em;
+	
+		#intent {
+			li:first-child {
+				list-style-image: url("../images/236-cool.png")
+			}
+			li:last-child {
+				list-style-image: url("../images/072-location.png")
+			}
+		}
+		#expe {
+			p {
+				font-weight: bold;
+			}
+			li {
+				list-style-image: url("../images/047-stack.png")
+			}
+		}
+	}
+}
+
+
+
+footer {
+	clear: both;
+	background-color: $title-color;
+	text-align: center;
+	font-size:0.6em;
+	color: $background-color;
+	padding: 0.8em;
+	a {
+		text-decoration: none;
+		color: $background-color;
+	}
+	a:hover {
+		background-color: $background-color;
+		color: $text-color;
+
+	}
+
+}
