@@ -1,0 +1,170 @@
+/* line 5, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/blog.scss */
+body {
+  font-size: 20px;
+}
+/* line 5, ../sass/blog.scss */
+body a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.8;
+}
+/* line 10, ../sass/blog.scss */
+body a:hover {
+  opacity: 1;
+}
+
+/* line 14, ../sass/blog.scss */
+header {
+  background-color: #292929;
+  height: 50px;
+  color: #fff;
+}
+/* line 18, ../sass/blog.scss */
+header h3 {
+  padding: 10px;
+  line-height: 30px;
+}
+/* line 23, ../sass/blog.scss */
+header nav {
+  background: rgba(0, 0, 0, 0.5);
+  width: 250px;
+  position: absolute;
+  left: -300px;
+  transition: position 1s;
+}
+/* line 31, ../sass/blog.scss */
+header nav ul li {
+  list-style: none;
+  padding: 10px 50px;
+  border-bottom: 1px solid #fff;
+}
+/* line 36, ../sass/blog.scss */
+header nav ul li:last-child {
+  border: none;
+}
+
+/* line 42, ../sass/blog.scss */
+.hero {
+  padding: 100px;
+  background: url(../images/hero.jpg);
+  text-align: center;
+}
+/* line 46, ../sass/blog.scss */
+.hero h1 {
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+/* line 51, ../sass/blog.scss */
+.body {
+  padding: 20px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 55, ../sass/blog.scss */
+.body h2 {
+  font-size: 1.2em;
+  text-align: center;
+}
+/* line 60, ../sass/blog.scss */
+.body time span {
+  display: block;
+  text-align: center;
+  background-color: #b0b0b0;
+  color: #fff;
+}
+/* line 66, ../sass/blog.scss */
+.body time .month {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+/* line 71, ../sass/blog.scss */
+.body time .date {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 30px;
+  font-size: 1.2em;
+}
+/* line 79, ../sass/blog.scss */
+.body p {
+  padding-left: 10%;
+  position: relative;
+  top: -30px;
+}
+
+/* line 85, ../sass/blog.scss */
+footer {
+  background-color: #292929;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 50px;
+}
