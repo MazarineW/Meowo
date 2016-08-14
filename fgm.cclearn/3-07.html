@@ -7,9 +7,9 @@
 		#cal {
 			width: 300px;
 			margin: 10px auto;
-			background-color: #000;
+			background-color: #202020;
 			border-radius: 5px;
-			border: 5px solid #000;
+			border: 5px solid #202020;
 		}
 		p {
 			color: #ddd;
@@ -20,14 +20,24 @@
 		}
 		input {
 			display: block;
-			width: 100%;
-			height: 30px;
+			width: 95%;
 			background-color: #e8e8da;
+			text-align: right;
+			padding-right: 5%;
+		}
+		#formula {
+			height: 10px;
+		}
+		#ans {
+			height: 40px;
+			font-size: 30px;
+			line-height: 40px;
 		}
 		td {
 			width: 60px;
 			height: 40px;
-			border: solid 5px #000;
+			border: solid 5px #202020;
+			border-top: solid 10px #202020;
 		}
 		a {
 			display: block;
@@ -40,7 +50,7 @@
 			text-align: center;
 			line-height: 40px;
 			border-radius: 5px;
-			background: linear-gradient(to top, #000 60%, #ccc);
+			background: linear-gradient(to top, #000 60%, #9c9c9c);
 		}
 		a:hover {
 			background: linear-gradient(to bottom, #000 70%, #707070);
@@ -53,6 +63,7 @@
 		}
 		#btneq {
 			background: linear-gradient(to top, #eb7613 60%, #fab57b);
+			line-height: 90px;
 		}
 		#btneq:hover {
 			background: linear-gradient(to bottom, #eb7613 60%, #fab57b);
@@ -62,54 +73,120 @@
 <body>
 	<div id="cal">
 		<p>By-Meowo</p>
-		<input></input>
-		<input id="ans"></input>
+		<input id="formula" readonly="readonly"></input>
+		<input id="ans" readonly="readonly" maxlength="9" value="0"></input>
+		<!-- maxlength="9"是什么 -->
 		<table>
 			<tr>
-				<td><a href="" class="btn0">c</a></td>
-				<td><a href="" class="btn0">%</a></td>
-				<td><a href="" class="btn0">÷</a></td>
-				<td><a href="" class="btn0">×</a></td>
+				<td><a href="javascript:;" class="btn0">c</a></td>
+				<td><a href="javascript:;" class="btn0">%</a></td>
+				<td><a href="javascript:;" class="btn0">÷</a></td>
+				<td><a href="javascript:;" class="btn0">×</a></td>
 			</tr>
 			<tr>
-				<td><a href="" class="btnnum">7</a></td>
-				<td><a href="" class="btnnum">8</a></td>
-				<td><a href="" class="btnnum">9</a></td>
-				<td><a href="" class="btn0">-</a></td>
+				<td><a href="javascript:;" class="btnnum">7</a></td>
+				<td><a href="javascript:;" class="btnnum">8</a></td>
+				<td><a href="javascript:;" class="btnnum">9</a></td>
+				<td><a href="javascript:;" class="btn0">-</a></td>
 			</tr>
 			<tr>
-				<td><a href="" class="btnnum">4</a></td>
-				<td><a href="" class="btnnum">5</a></td>
-				<td><a href="" class="btnnum">6</a></td>
-				<td><a href="" class="btn0">+</a></td>
+				<td><a href="javascript:;" class="btnnum">4</a></td>
+				<td><a href="javascript:;" class="btnnum">5</a></td>
+				<td><a href="javascript:;" class="btnnum">6</a></td>
+				<td><a href="javascript:;" class="btn0">+</a></td>
 			</tr>
 			<tr>
-				<td><a href="" class="btnnum">1</a></td>
-				<td><a href="" class="btnnum">2</a></td>
-				<td><a href="" class="btnnum">3</a></td>
-				<td rowspan="2"><a href="" id="btneq">=</a></td>
+				<td><a href="javascript:;" class="btnnum">1</a></td>
+				<td><a href="javascript:;" class="btnnum">2</a></td>
+				<td><a href="javascript:;" class="btnnum">3</a></td>
+				<td rowspan="2"><a href="javascript:;" id="btneq">=</a></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="btnnum"><a href="">0</a></td>
-				<td><a href="" id="btnpo">.</a></td>
+				<td colspan="2" class="btnnum"><a href="javascript:;">0</a></td>
+				<td><a href="javascript:;" id="btnpo">.</a></td>
 			</tr>
 		</table>
 	</div>
 	<script type="text/javascript">
-		var btn0s = document.getElementsByClassName("btn0");
-		var btneq = document.getElementById("btneq");
-		var btnnums = document.getElementsByClassName("btnnum");
-		var nums = parseInt(btnnums.innerHTML);
-		var scrans = document.getElementById("ans");
-		var ansnum = 0;
-		for (var i = 0; i < nums.length; i++) {
-			btnnums[i].index = i;
-			btnnums[i].onclick = function() {
-				ansnum= ansnum + nums[this.index].innerHTML;
-			};
-		}
-		scrans.innerHTML = ansnum;
+		window.onload = function() {
+			var btns = document.getElementsByTagName("a");
+			var ans = document.getElementById("ans");
+			var formula = document.getElementById("formula");
+			var s = false;
+			var i = 0;
 
+			for (i = 0; i < btns.length; i++) {
+				btns[i].onfocus = function() {
+					this.blur()
+				};
+				btns[i].onclick = function() {
+					switch(this.innerHTML) {
+						case "c":
+							ans.value = 0;
+							formula.value = "";
+							break;
+						case "%":
+							count("%")
+							break;
+						case "÷":
+							count("/")
+							break;
+						case "×":
+							count("*")
+							break;
+						case "-":
+							count("-")
+							break;
+						case "+":
+							count("+")
+							break;
+						case "=":
+							if(s == false) {
+								formula.value += ans.value;
+							}
+							ans.value = eval(formula.value.replace(/\%\/\*\-\+/,""));
+							ans.value = ans.value.substr(0,10).replace("NaN",0);
+							// ？为什么是substr(0,10)
+							s = true;
+							break;
+						case ".":
+						//如果ans.value里有符号，break
+							if(ans.value.search(/[\.\%\/\*\-\+]/) != -1)
+							break;
+						default:
+						//按下数字的时候
+							if(s == true) {
+								ans.value = 0, formula.value = "";
+								 s = false;
+							}
+							if(ans.value.length < 10) {
+								(ans.value = (ans.value + this.innerHTML).replace(/^[0\%\/\*\-\+](\d)/,"$1"));
+							}
+					}
+				}
+			}
+
+			function count(a) {
+				if(s) {
+					formula.value = ans.value + a;
+					ans.value = a;
+					s = false;
+				} else {
+					if(!/[\%\/\*\-\+]$/.test(ans.value)) {
+						formula.value += ans.value;
+						ans.value = a;
+					}
+					if(!/[\%\/\*\-\+]$/.test(formula.value)) {
+						formula.value += ans.value;
+					}
+					if(formula.value.slice(-1) != a) {
+						formula.value = formula.value.replace(/.$/,a); 
+					} else {
+						formula.value = formula.value;
+					}
+				}
+			}
+		}
 	</script>
 </body>
 </html>

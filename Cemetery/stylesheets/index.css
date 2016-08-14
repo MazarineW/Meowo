@@ -1,0 +1,52 @@
+/* line 6, ../sass/index.scss */
+nav {
+  margin-bottom: 0;
+}
+
+/* line 9, ../sass/index.scss */
+#top-gallery {
+  width: 100%;
+  height: 235px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 5px solid #1B6250;
+  border-top: none;
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 18, ../sass/index.scss */
+#top-gallery li {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 24, ../sass/index.scss */
+#top-gallery li img {
+  opacity: 0;
+  transition: opacity 1s linear;
+  width: 100%;
+}
+/* line 29, ../sass/index.scss */
+#top-gallery li .show {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+/* line 38, ../sass/index.scss */
+#mainbody {
+  margin-left: 340px;
+  padding: 10px;
+}
+/* line 41, ../sass/index.scss */
+#mainbody article {
+  margin: 10px 10px 20px 10px;
+}
+/* line 43, ../sass/index.scss */
+#mainbody article h3 {
+  border-bottom: 3px double #1B6250;
+}
+/* line 46, ../sass/index.scss */
+#mainbody article p {
+  text-indent: 2em;
+}

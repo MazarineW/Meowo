@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160721</title>
+	<style type="text/css">
+		table {
+			border: solid 2px #000;
+			border-collapse: collapse;
+			text-align: center;
+		}
+		th,td {
+			border: solid 1px #000;
+			padding: 5px 10px;
+			width: 50px;
+
+		}
+		.down {
+			background: url("images/down.png") no-repeat center right;
+			background-size: 20px 20px;
+		}
+	</style>
+</head>
+<body>
+	<table cellpadding= "10px">
+		<tr>
+			<th class="down">编号</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>身高</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>张</td>
+			<td>22</td>
+			<td>176</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>王</td>
+			<td>26</td>
+			<td>169</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>李</td>
+			<td>53</td>
+			<td>183</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>赵</td>
+			<td>16</td>
+			<td>166</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>周</td>
+			<td>47</td>
+			<td>174</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var ths = document.getElementsByTagName("th");
+		//加小箭头
+		for (var i = 0; i < ths.length; i++) {
+			
+			ths[i].onclick = function() {
+				for (var j = 0; j < ths.length; j++) {
+					ths[j].className = "";
+				}
+				this.className = "down";
+			}
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+@import "compass/reset";
+@import "compass/css3";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#map {
+	width: 400px;
+	height: 400px;
+	margin: 50px auto;
+	background-color: #6e6e6e;
+	position: relative;
+	tr {
+		td {
+			border: solid 1px #fff;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+}
+
+#food {
+	width: 19px;
+	height: 20px;
+	position: absolute;
+	background-color: yellow;
+	z-index: 20;
+
+}
+
+.body {
+	background-color: green;
+	position: absolute;
+	z-index: 10;
+}

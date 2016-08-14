@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>天龙山墓园</title>
+    <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" id="logo">
+            <h1>天龙山墓园</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" {% if request.path == '/' %}class="current"{% endif %}>网站首页</a></li>
+                <li><a href="product.html" {% if request.path == '/product' %}class="current"{% endif %}>产品展示</a></li>
+                <li><a href="introduction.html" {% if request.path == '/introduction' %}class="current"{% endif %}>园区简介</a></li>
+                <li><a href="culture.html" {% if request.path == '/culture' %}class="current"{% endif %}>文化传承</a></li>
+                <li><a href="message.html" {% if request.path == '/message' %}class="current"{% endif %}>在线留言</a></li>
+                <li><a href="contact.html" {% if request.path == '/contact' %}class="current"{% endif %}>联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+        <ul id="top-gallery" class="gallery">
+            <li><img src="images/1.jpg" alt=""><a href=""></a></li>
+            <li><img src="images/2.jpg" alt=""><a href=""></a></li>
+        </ul>
+        <aside>
+            <ul>
+                <h2>联系方式</h2>
+                <li>地址：沈阳城西杨士岗镇</li>
+                <li>距京沈高速高花出口2公里</li>
+                <li>电话1：18240496144</li>
+                <li>电话2：15904033288</li>
+                <li>联系人：孙经理</li>
+                <li>邮箱：xxxx@xxxx.com</li>
+            </ul>
+        </aside>
+
+        <div id="mainbody" class="typo">
+            <section>
+                <article>
+                    <h3>天龙山墓园简介</h3>
+                    <p>天龙山墓园是国家民政部门批准的合法公益性墓园，墓园位于沈阳城西杨士岗镇，距京沈高速高花出口2公里，沈西开发大道京沈高速口3公里，距沈阳城区10分钟车程，交通十分便捷，是距沈阳西部最近的墓园。</p>
+                    <p>园区北高南低，上风下水，藏风聚气，自然天成，毗邻道教圣地“三清观”，与中国“北普陀”华圣寺相隔不到2公里，距省内最大的万亩平原水库“珍珠湖”5公里。园区植被丰富，苍松翠柏绿树环绕，环境优雅，是田园风貌浓郁的生态墓园。</p>
+                    <p>园区按照国家标准由著名风水大师全新规划，设计合理。墓碑全部采用天然石材，经名师精心雕刻，造型文雅，格调高贵。</p>
+                    <p>园区手续完备，证件齐全，规模已具，可提供万余个墓穴，供用户选购。</p>
+                </article>
+            </section>
+        </div>
+    <footer>
+        <ul>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="product.html">产品展示</a></li>
+            <li><a href="introduction.html">园区简介</a></li>
+            <li><a href="culture.html">文化传承</a></li>
+            <li><a href="message.html">在线留言</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="#">手机访问</a></li>
+        </ul>
+        &copy; 2016 <a href="index.html">天龙山墓园</a> All Rights Reserved.
+    </footer>
+
+
+</body>
+</html>

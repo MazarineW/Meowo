@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160709</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#menu {
+			width: 100px;
+			list-style-type: none;
+			border: 1px solid #000;
+			border-radius: 3px;
+			padding: 2px;
+			position: absolute;
+			display: none;
+		}
+		li {
+			width: 70px;
+			border-left: #eaead7 solid 30px;
+			height: 30px;
+			line-height: 30px;
+		}
+		li:hover {
+			background-color: #8f8f8f;
+			border-left: #999999 solid 30px;
+		}
+	</style>
+</head>
+<body>
+	<p>自定义右键菜单，请在页面点击右键查看效果。</p>
+	<ul id="menu">
+		<li>剪切</li>
+		<li>复制</li>
+		<li>粘贴</li>
+	</ul>
+	<script type="text/javascript">
+		var menu = document.getElementById("menu")
+		document.oncontextmenu = function(event) {
+			menu.display = "block";
+			menu.left = event.clientX + "px";
+			menu.top = event.clientY + "px";
+			return false;
+		}
+		document.onclick = function() {
+			menu.display = "none";
+		}
+	</script>
+</body>
+</html>

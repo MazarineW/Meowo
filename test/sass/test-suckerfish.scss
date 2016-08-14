@@ -1,0 +1,30 @@
+@import "compass/reset";
+@import "compass/css3";
+
+
+
+ul {
+
+	list-style-type: none;
+}
+li {
+	display: block;
+	border: 1px gray solid;
+	width: 150px;
+	padding: 5px;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	background-color: #8bd400;
+}
+#test {
+	position: relative;
+}
+#ser li {
+		display: none;
+	}
+
+a:hover li {
+	display: block;
+	background-color: gray;
+}
