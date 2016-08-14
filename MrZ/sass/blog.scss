@@ -13,19 +13,21 @@ body {
 }
 header {
 	background-color: #292929;
-	height: 50px;
+	height: 40px;
 	color: #fff;
+	position: fixed;
+	width: 100%;
 	h3 {
 		padding: 10px;
-		line-height: 30px;
+		line-height: 20px;
 	}
 
 	nav {
 		background: rgba(0, 0, 0, 0.5);
 		width: 250px;
-		position: absolute;
+		position: fixed;
 		left: -300px;
-		transition: position 1s;
+		transition: all 1s;
 		ul {
 
 			li {
@@ -79,14 +81,15 @@ header {
 	p {
 		padding-left: 10%;
 		position: relative;
-		top: -30px;
+		top: -50px;
+		margin-bottom: 10px;
 	}
 }
 footer {
 	background-color: #292929;
-	height: 50px;
+	height: 40px;
 	color: #fff;
 	text-align: center;
 	font-size: 0.8em;
-	line-height: 50px;
+	line-height: 40px;
 }

@@ -81,70 +81,72 @@ body a:hover {
 /* line 14, ../sass/blog.scss */
 header {
   background-color: #292929;
-  height: 50px;
+  height: 40px;
   color: #fff;
+  position: fixed;
+  width: 100%;
 }
-/* line 18, ../sass/blog.scss */
+/* line 20, ../sass/blog.scss */
 header h3 {
   padding: 10px;
-  line-height: 30px;
+  line-height: 20px;
 }
-/* line 23, ../sass/blog.scss */
+/* line 25, ../sass/blog.scss */
 header nav {
   background: rgba(0, 0, 0, 0.5);
   width: 250px;
-  position: absolute;
+  position: fixed;
   left: -300px;
-  transition: position 1s;
+  transition: all 1s;
 }
-/* line 31, ../sass/blog.scss */
+/* line 33, ../sass/blog.scss */
 header nav ul li {
   list-style: none;
   padding: 10px 50px;
   border-bottom: 1px solid #fff;
 }
-/* line 36, ../sass/blog.scss */
+/* line 38, ../sass/blog.scss */
 header nav ul li:last-child {
   border: none;
 }
 
-/* line 42, ../sass/blog.scss */
+/* line 44, ../sass/blog.scss */
 .hero {
   padding: 100px;
   background: url(../images/hero.jpg);
   text-align: center;
 }
-/* line 46, ../sass/blog.scss */
+/* line 48, ../sass/blog.scss */
 .hero h1 {
   font-size: 1.5em;
   margin: 20px;
 }
 
-/* line 51, ../sass/blog.scss */
+/* line 53, ../sass/blog.scss */
 .body {
   padding: 20px 0;
   width: 80%;
   margin: 0 auto;
 }
-/* line 55, ../sass/blog.scss */
+/* line 57, ../sass/blog.scss */
 .body h2 {
   font-size: 1.2em;
   text-align: center;
 }
-/* line 60, ../sass/blog.scss */
+/* line 62, ../sass/blog.scss */
 .body time span {
   display: block;
   text-align: center;
   background-color: #b0b0b0;
   color: #fff;
 }
-/* line 66, ../sass/blog.scss */
+/* line 68, ../sass/blog.scss */
 .body time .month {
   width: 30px;
   height: 30px;
   line-height: 30px;
 }
-/* line 71, ../sass/blog.scss */
+/* line 73, ../sass/blog.scss */
 .body time .date {
   width: 50px;
   height: 50px;
@@ -152,19 +154,20 @@ header nav ul li:last-child {
   margin-left: 30px;
   font-size: 1.2em;
 }
-/* line 79, ../sass/blog.scss */
+/* line 81, ../sass/blog.scss */
 .body p {
   padding-left: 10%;
   position: relative;
-  top: -30px;
+  top: -50px;
+  margin-bottom: 10px;
 }
 
-/* line 85, ../sass/blog.scss */
+/* line 88, ../sass/blog.scss */
 footer {
   background-color: #292929;
-  height: 50px;
+  height: 40px;
   color: #fff;
   text-align: center;
   font-size: 0.8em;
-  line-height: 50px;
+  line-height: 40px;
 }
