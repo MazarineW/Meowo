@@ -253,20 +253,36 @@
 				uiIntro.className = "hide";
 				startGame();
 			};
-			uiReset.onclick = function(e) {
-				e.preventDefault();
-				uiComplete.className = "hide";
+			for (var s = 0; s < uiReset.length; s++) {
+				uiReset[s].onclick = function(e) {
+					e.preventDefault();
+					uiComplete.className = "hide";
 
-				window.onkeydown = null;
-				window.onkeyup = null;
+					window.onkeydown = null;
+					window.onkeyup = null;
 
-				clearTimeout(scoreTimeout);
+					clearTimeout(scoreTimeout);
 
-				soundThrust.pause();
-				soundBackground.pause();
+					soundThrust.pause();
+					soundBackground.pause();
 
-				startGame();
+					startGame();
+				}
 			}
+			// uiReset.onclick = function(e) {
+			// 	e.preventDefault();
+			// 	uiComplete.className = "hide";
+
+			// 	window.onkeydown = null;
+			// 	window.onkeyup = null;
+
+			// 	clearTimeout(scoreTimeout);
+
+			// 	soundThrust.pause();
+			// 	soundBackground.pause();
+
+			// 	startGame();
+			// }
 		}
 
 		function timer() {
