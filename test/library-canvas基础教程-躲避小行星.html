@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160814躲避小行星</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html, body {
+			height: 100%;
+			width: 100%;
+		}
+		canvas {
+			display: block;
+		}
+		body {
+			background: #000;
+			color: #fff;
+			font-family: Verdana, Arial, sans-serif;
+			font-size: 18px;
+		}
+		h1 {
+			font-size: 30px;
+		}
+		p {
+			margin: 0 20px;
+		}
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		a.button {
+			background: #185da8;
+			border-radius: 5px;
+			display: block;
+			font-size: 30px;
+			margin: 40px 0 0 270px;
+			padding: 10px;
+			width: 200px;
+		}
+		a.button:hover {
+			background: #2488f5;
+			color: #fff;
+			text-decoration: none;
+		}
+		#game {
+			height: 600px;
+			left: 50%;
+			margin: -300px 0 0 -400px;
+			position: relative;
+			top: 50%;
+			width: 800px;
+		}
+		#gameCanvas {
+			background: #001022;
+		}
+		#gameUI {
+			height: 600px;
+			position: absolute; /*将UI置于画布上方*/
+			width: 800px;
+		}
+		#gameIntro, #gameComplete {
+			background: rgba(0, 0, 0, 0.5);
+			margin-top: 100px;
+			padding: 40px 0;
+			text-align: center;
+		}
+		#gameStats {
+			font-size: 14px;
+			margin: 20px 0;
+		}
+		#gameStats .gameReset {
+			margin: 20px 20px 0 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.hide {
+			display: none;
+		}
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="game">
+		<div id="gameUI">
+			<div id="gameIntro">
+				<h1>Asteroid avoidance</h1>
+				<p>Click play and then press any key to start.</p>
+				<p><a href="" id="gamePlay" class="button">Play</a></p>
+			</div>
+			<div id="gameStats">
+				<p>Time: <span class="gameScore"></span>seconds</p>
+				<p><a href="" class="gameReset">Reset</a></p>
+			</div>
+			<div id="gameComplete">
+				<h1>Game over!</h1>
+				<p>You survived for <span class="gameScore"></span> seconds.</p>
+				<p><a href="" class="gameReset button">Play again</a></p>
+			</div>
+		</div>
+		<canvas id="gameCanvas" width="800" height="600"></canvas>
+		<audio id="gameSoundBackground" loop>
+			<source src="sounds/background.ogg">
+			<source src="sounds/background.mp3">
+		</audio>
+		<audio id="gameSoundThrust" loop>
+			<source src="sounds/thrust.ogg">
+			<source src="sounds/thrust.mp3">
+		</audio>
+		<audio id="gameSoundDeath">
+			<source src="sounds/death.ogg">
+			<source src="sounds/death.mpe">
+		</audio>
+	</div>
+	<script type="text/javascript">
+		var canvas = document.getElementById("gameCanvas");
+		var context = canvas.getContext("2d");
+		//画布尺寸
+		var canvasWidth = canvas.width;
+		var canvasHeight = canvas.height;
+		//游戏设置
+		var playGame;
+
+		var asteriods;
+		var numAsteroids;
+		var player;
+
+		var score;
+		var scoreTimeout;
+
+		//按键
+		var arrowUp = 38;
+		var arrowRight = 39;
+		var arrowDown = 40
+
+		//游戏UI
+		var ui = document.getElementById("gameUI");
+		var uiIntro = document.getElementById("gameIntro");
+		var uiStats = document.getElementById("gameStats");
+		var uiComplete = document.getElementById("gameComplete");
+		var uiPlay = document.getElementById("gamePlay");
+		var uiReset = document.getElementsByClassName("gameReset"); //list
+		var uiScore = document.getElementsByClassName("gameScore"); //list
+
+		var soundBackground = document.getElementById("gameSoundBackground");
+		var soundThrust = document.getElementById("gameSoundThrust");
+		var soundDeath = document.getElementById("gameSoundDeath");
+
+		var Asteroid = function(x, y, radius, vX) {
+			this.x = x;
+			this.y = y;
+			this.radius = radius;
+			this.vX = vX;
+		}
+
+		var Player = function(x, y) {
+			this.x = x;
+			this.y = y;
+			this.width = 24;
+			this.height = 24;
+			this.halfWidth = this.width/2;
+			this.halfHeight = this.height/2;
+
+			this.vX = 0;
+			this.vY = 0;
+
+			this.moveRight = false;
+			this.moveUp = false;
+			this.moveDown = false;
+
+			this.flameLength = 20;
+		}
+
+		//重置和启动游戏
+		function startGame() {
+			//重置游戏状态
+			for (var s = 0; s < uiScore.length; s++) {
+				uiScore[s].innerHTML = "0";
+			}
+			uiStats.className = "show"
+			//初始游戏设置
+			playGame = false;
+
+			asteriods = new Array();
+			numAsteroids = 10;
+			score = 0;
+			player = new Player(150, canvasHeight/2);
+
+			//创建小行星
+			for (var i = 0; i < numAsteroids; i++) {
+				var radius = 5 + (Math.random()*10);
+				var x = canvasWidth + radius + Math.floor(Math.random()*canvasWidth);
+				var y = Math.floor(Math.random()*canvasHeight);
+				var vX = -5 - (Math.random()*5);
+
+				asteriods.push(new Asteroid(x, y, radius, vX));
+			}
+
+			window.onkeydown = function(e) {
+				var keyCode = e.keyCode;
+
+				if (!playGame) {
+					playGame = true;
+					soundBackground.currentTime = 0;
+					soundBackground.play();
+					animate();
+					timer();
+				}
+				if (keyCode == arrowRight) {
+					player.moveRight = true;
+					if (soundThrust.paused) {
+						soundThrust.currentTime = 0;
+						soundThrust.play();
+					}
+				} else if (keyCode == arrowUp) {
+					player.moveUp = true;
+				} else if (keyCode == arrowDown) {
+					player.moveDown = true;
+				}
+			};
+			window.onkeyup = function(e) {
+				var keyCode = e.keyCode;
+
+				if (keyCode == arrowRight) {
+					player.moveRight = false;
+					soundThrust.pause();
+				} else if (keyCode == arrowUp) {
+					player.moveUp = false;
+				} else if (keyCode == arrowDown) {
+					player.moveDown = false;
+				}
+			};
+
+			//开始动画循环
+			animate();
+		}
+
+		//初始化游戏环境
+		function init() {
+			uiStats.className = "hide";
+			uiComplete.className = "hide";
+			//隐藏相关UI屏幕并运行游戏
+			uiPlay.onclick = function(e) {
+				e.preventDefault();
+				uiIntro.className = "hide";
+				startGame();
+			};
+			uiReset.onclick = function(e) {
+				e.preventDefault();
+				uiComplete.className = "hide";
+
+				window.onkeydown = null;
+				window.onkeyup = null;
+
+				clearTimeout(scoreTimeout);
+
+				soundThrust.pause();
+				soundBackground.pause();
+
+				startGame();
+			}
+		}
+
+		function timer() {
+			if (playGame) {
+				scoreTimeout = setTimeout(function() {
+					var showScore = ++score;
+					for (var s = 0; s < uiScore.length; s++) {
+						uiScore[s].innerHTML = showScore;
+					}
+					timer();
+				}, 1000)
+			}
+		}
+
+		function animate() {
+			//清除
+			context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+			//更新小行星位置
+			var asteroidsLength = asteriods.length;
+			for (var i = 0; i < asteroidsLength; i++) {
+				var tmpAsteroid = asteriods[i];
+
+				tmpAsteroid.x += tmpAsteroid.vX;
+
+				//重新利用小行星
+				if (tmpAsteroid.x + tmpAsteroid.radius < 0) {
+					tmpAsteroid.radius = 5 + (Math.random()*10);
+					tmpAsteroid.x = canvasWidth + tmpAsteroid.radius;
+					tmpAsteroid.y = Math.floor(Math.random()*canvasHeight);
+					tmpAsteroid.vX = -5-(Math.random()*5);
+				}
+
+				//杀死玩家
+				var dX = player.x - tmpAsteroid.x;
+				var dY = player.y - tmpAsteroid.y;
+				var distance = Math.sqrt((dX*dX) + (dY*dY));
+
+				if (distance < player.halfWidth + tmpAsteroid.radius) {
+					soundThrust.pause();
+					soundDeath.currentTime = 0;
+					soundDeath.play();
+
+					//游戏结束
+					playGame = false;
+					clearTimeout(scoreTimeout);
+					uiStats.className = "hide";
+					uiComplete.className = "show";
+
+					soundBackground.pause();
+
+					window.onkeydown = null;
+					window.onkeyup = null;
+				}
+
+				context.fillStyle = "rgb(255, 255, 255)";
+				context.beginPath();
+				context.arc(tmpAsteroid.x, tmpAsteroid.y, tmpAsteroid.radius, 0, Math.PI*2, true)
+				context.closePath();
+				context.fill();
+			}
+
+			//更新玩家位置
+			player.vX = 0;
+			player.vY = 0;
+
+			if (player.moveRight) {
+				player.vX = 3;
+			} else {
+				player.vX = -3;
+			}
+			if (player.moveUp) {
+				player.vY = -3;
+			}
+			if (player.moveDown) {
+				player.vY = 3;
+			}
+			player.x += player.vX;
+			player.y += player.vY;
+
+			//设置边界
+			if (player.x - player.halfWidth < 20) {
+				player.x = 20 + player.halfWidth;
+			} else if (player.x + player.halfWidth > canvasWidth - 20) {
+				player.x = canvasWidth - 20 - player.halfWidth;
+			}
+			if (player.y - player.halfHeight < 20) {
+				player.y = 20 + player.halfHeight;
+			} else if (player.y + player.halfHeight > canvasHeight - 20) {
+				player.y = canvasHeight - 20 - player.halfHeight;
+			}
+
+			//绘制火焰
+			if (player.moveRight) {
+				context.save();
+				context.translate(player.x - player.halfWidth, player.y);
+				if (player.flameLength == 20) {
+					player.flameLength = 15;
+				} else {
+					player.flameLength = 20;
+				}
+
+				context.fillStyle = "orange";
+				context.beginPath();
+				context.moveTo(0,-5);
+				context.lineTo(-player.flameLength, 0);
+				context.lineTo(0, 5);
+				context.closePath();
+				context.fill();
+
+				context.restore();
+			}
+
+			context.fillStyle = "rgb(255, 0, 0)";
+			context.beginPath();
+			context.moveTo(player.x + player.halfWidth, player.y);
+			context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
+			context.lineTo(player.x - player.halfWidth, player.y + player.halfHeight);
+			context.closePath();
+			context.fill();
+			
+			if (playGame) {
+				//33毫秒后再次运行动画循环
+				setTimeout(animate, 33);
+			}		
+		}
+		init();
+	</script>
+</body>
+</html>
