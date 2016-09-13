@@ -1,0 +1,113 @@
+@import "compass/reset";
+@import "compass/css3";
+
+body {
+	font-size: 1.5625vw;
+	font-family: "Microsoft Yahei";
+	overflow: hidden;
+}
+
+#music {
+	width: 15vw;
+	height: 15vw;
+	border: 4px solid #ef1639;
+	border-radius: 50%;
+	background: #fff;
+	position: fixed;
+	top: 3vh;
+	right: 4vw;
+	z-index: 5;
+	img:first-of-type {
+		position: absolute;
+		width: 79%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+	}
+	img:last-of-type {
+		position:absolute;
+		top: 24%;
+		right: 2.5%;
+		width: 28.421%;
+	}
+	img.play {
+		animation: music_disc 4s linear infinite;
+	}
+
+}
+@keyframes music_disc {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+
+}
+
+.page .bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	display: none;
+}
+#page1 {
+	.bg {
+		background: url("../images/greetingcard/p1_bg.jpg") no-repeat center center;
+
+	}
+	.p1_lantern {
+		width: 45vw;
+		height: 71.2vh;
+		font-size: 3.506rem;
+		position: absolute;
+		right: 0;
+		left: 0;
+		margin: auto;
+		background: url("../images/greetingcard/p1_lantern.png") no-repeat center bottom;
+		background-size: 100%;
+		padding-top: 31vh;
+		box-sizing: border-box;
+	}
+	.p1_lantern:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		width: 30vw;
+		height: 30vw;
+		background: #d60b3b;
+		opacity: 0.5;
+		box-shadow: 0 0 10vw 10vw #d60b3b;
+		z-index: -1;
+		content: "";
+		border-radius: 50%;
+	}
+	.p1_imooc {
+		position: absolute;
+		right: 0;
+		bottom: 9vh;
+		left: 0;
+		background: url("../images/greetingcard/p1_imooc.png") no-repeat center center;
+		background-size: 100%;
+		width: 27.656vw;
+		height: 18.63vh;
+		margin: auto;
+	}
+}
+#page2 {
+	.bg {
+		background: url("../images/greetingcard/p2_bg.jpg") no-repeat center center;
+		display: block;
+	}
+}
+#page3 {
+	.bg {
+		background: url("../images/greetingcard/p3_bg.jpg") no-repeat center center;
+	}
+}

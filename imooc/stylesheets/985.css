@@ -102,4 +102,112 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
+}
+
+/* line 41, ../sass/985.scss */
+.sidebar-move-left {
+  animation-name: sml;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sml {
+  to {
+    transform: translateX(-120px);
+  }
+}
+/* line 55, ../sass/985.scss */
+.closebar-move-right {
+  animation-name: cmr;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cmr {
+  to {
+    transform: translateX(160px), rotate(405deg), scale(1.5);
+  }
+}
+/* line 70, ../sass/985.scss */
+.sidebar-move-right {
+  animation-name: smr;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes smr {
+  to {
+    transform: translateX(120px);
+  }
+}
+/* line 86, ../sass/985.scss */
+.closebar-move-left {
+  animation-name: cml;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cml {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: translateX(-160px), rotate(-405deg), scale(1);
+  }
+}
+/* line 101, ../sass/985.scss */
+.menuContent-move-right {
+  animation-name: mmr;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mmr {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(120px);
+  }
+}
+/* line 117, ../sass/985.scss */
+.menuContent-move-left {
+  animation-name: mml;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mml {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+}
+/* line 133, ../sass/985.scss */
+.menuContent-move-up {
+  animation-name: mmu;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mmu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-250px);
+  }
 }
