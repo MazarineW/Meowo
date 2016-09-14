@@ -65,25 +65,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 4, ../sass/greetingcard.scss */
 body {
-  font-size: 1.5625vw;
   font-family: "Microsoft Yahei";
   overflow: hidden;
 }
 
-/* line 10, ../sass/greetingcard.scss */
-#music {
-  width: 15vw;
-  height: 15vw;
+/* line 9, ../sass/greetingcard.scss */
+.music {
+  width: 62px;
+  height: 62px;
   border: 4px solid #ef1639;
   border-radius: 50%;
   background: #fff;
   position: fixed;
-  top: 3vh;
-  right: 4vw;
-  z-index: 5;
+  top: 20px;
+  right: 15px;
+  z-index: 10;
 }
-/* line 20, ../sass/greetingcard.scss */
-#music img:first-of-type {
+/* line 19, ../sass/greetingcard.scss */
+.music img:first-of-type {
   position: absolute;
   width: 79%;
   top: 0;
@@ -92,15 +91,15 @@ body {
   left: 0;
   margin: auto;
 }
-/* line 29, ../sass/greetingcard.scss */
-#music img:last-of-type {
+/* line 28, ../sass/greetingcard.scss */
+.music img:last-of-type {
   position: absolute;
   top: 24%;
   right: 2.5%;
   width: 28.421%;
 }
-/* line 35, ../sass/greetingcard.scss */
-#music img.play {
+/* line 34, ../sass/greetingcard.scss */
+.music img.play {
   animation: music_disc 4s linear infinite;
 }
 
@@ -112,70 +111,223 @@ body {
     transform: rotate(360deg);
   }
 }
-/* line 50, ../sass/greetingcard.scss */
+/* line 49, ../sass/greetingcard.scss */
+.page {
+  display: none;
+}
+/* line 51, ../sass/greetingcard.scss */
 .page .bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  display: none;
+  z-index: -10;
 }
 
 /* line 58, ../sass/greetingcard.scss */
+#page1 {
+  display: block;
+}
+/* line 60, ../sass/greetingcard.scss */
 #page1 .bg {
   background: url("../images/greetingcard/p1_bg.jpg") no-repeat center center;
 }
-/* line 62, ../sass/greetingcard.scss */
+/* line 64, ../sass/greetingcard.scss */
 #page1 .p1_lantern {
-  width: 45vw;
-  height: 71.2vh;
-  font-size: 3.506rem;
+  width: 173px;
+  height: 469px;
+  font-size: 30px;
+  line-height: 30px;
   position: absolute;
+  top: 0;
   right: 0;
   left: 0;
   margin: auto;
   background: url("../images/greetingcard/p1_lantern.png") no-repeat center bottom;
   background-size: 100%;
-  padding-top: 31vh;
   box-sizing: border-box;
 }
-/* line 75, ../sass/greetingcard.scss */
+/* line 78, ../sass/greetingcard.scss */
 #page1 .p1_lantern:before {
   position: absolute;
-  top: 0;
+  top: -20px;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 30vw;
-  height: 30vw;
+  width: 135px;
+  height: 135px;
   background: #d60b3b;
   opacity: 0.5;
-  box-shadow: 0 0 10vw 10vw #d60b3b;
-  z-index: -1;
+  box-shadow: 0 0 20px 20px #d60b3b;
+  z-index: -5;
   content: "";
   border-radius: 50%;
+  animation: lan 1.5s linear infinite alternate;
 }
-/* line 91, ../sass/greetingcard.scss */
+@keyframes lan {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 103, ../sass/greetingcard.scss */
 #page1 .p1_imooc {
   position: absolute;
   right: 0;
-  bottom: 9vh;
+  bottom: 30px;
   left: 0;
   background: url("../images/greetingcard/p1_imooc.png") no-repeat center center;
   background-size: 100%;
-  width: 27.656vw;
-  height: 18.63vh;
+  width: 114px;
+  height: 137px;
   margin: auto;
 }
-
-/* line 104, ../sass/greetingcard.scss */
-#page2 .bg {
-  background: url("../images/greetingcard/p2_bg.jpg") no-repeat center center;
-  display: block;
+/* line 114, ../sass/greetingcard.scss */
+#page1 .p1_words {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
 }
 
-/* line 110, ../sass/greetingcard.scss */
+/* line 122, ../sass/greetingcard.scss */
+#page2 .bg {
+  background: url("../images/greetingcard/p2_bg.jpg") no-repeat center center;
+}
+/* line 125, ../sass/greetingcard.scss */
+#page2 .p2_circle {
+  background: url("../images/greetingcard/p2_circle_middle.png") no-repeat center center;
+  background-size: 80%;
+  width: 180px;
+  height: 180px;
+  z-index: 10;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: middle 1s linear 0.5s;
+}
+@keyframes middle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+/* line 146, ../sass/greetingcard.scss */
+#page2 .p2_circle:before {
+  background: url("../images/greetingcard/p2_circle_inner.png") no-repeat center center;
+  background-size: 60%;
+  width: 180px;
+  height: 180px;
+  z-index: 10;
+  position: absolute;
+  content: "";
+  animation: inner 1s linear;
+}
+@keyframes inner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+/* line 164, ../sass/greetingcard.scss */
+#page2 .p2_circle:after {
+  background: url("../images/greetingcard/p2_circle_outer.png") no-repeat center center;
+  background-size: 100%;
+  width: 180px;
+  height: 180px;
+  z-index: 10;
+  position: absolute;
+  content: "";
+  animation: inner 1s linear 1s;
+}
+@keyframes outer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+/* line 183, ../sass/greetingcard.scss */
+#page3 {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: top 3s;
+}
+/* line 189, ../sass/greetingcard.scss */
 #page3 .bg {
   background: url("../images/greetingcard/p3_bg.jpg") no-repeat center center;
+}
+/* line 192, ../sass/greetingcard.scss */
+#page3 .p3_logo {
+  background: url("../images/greetingcard/p3_logo.png") no-repeat center center;
+  background-size: 100%;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+}
+/* line 199, ../sass/greetingcard.scss */
+#page3 .p3_title {
+  background: url("../images/greetingcard/p3_title.png") no-repeat center center;
+  background-size: 100%;
+  width: 180px;
+  height: 350px;
+  margin: 0 auto;
+}
+/* line 206, ../sass/greetingcard.scss */
+#page3 .p3_second {
+  background: url("../images/greetingcard/p3_couplet_second.png") no-repeat center center;
+  background-size: 100%;
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  animation: couplet 1s linear;
+}
+/* line 216, ../sass/greetingcard.scss */
+#page3 .p3_first {
+  background: url("../images/greetingcard/p3_couplet_first.png") no-repeat center center;
+  background-size: 100%;
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  animation: couplet 1s linear;
+}
+@keyframes couplet {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(100%);
+  }
+}
+/* line 234, ../sass/greetingcard.scss */
+#page3 .p3_blessing {
+  background: url("../images/greetingcard/p3_blessing.png") no-repeat center center;
+  background-size: 100%;
+  width: 120px;
+  height: 120px;
+  margin: 50px auto;
+  animation: blessing 2s linear infinite;
+}
+@keyframes blessing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
