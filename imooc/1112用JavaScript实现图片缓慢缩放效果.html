@@ -103,7 +103,8 @@
 				if(imgLeft < endLeft){
 					if(imgLeft < maxLeft){
 						//将图片的左偏移（left值）增加20px，注意单位
-						img.style.left = (imgLeft + 20) + "px";
+						imgLeft = imgLeft + 20;
+						img.style.left = imgLeft + "px";
 					}else{
 						//终止定时器函数
 						clearInterval(slideTimer);
