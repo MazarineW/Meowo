@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160919</title>
+	
+
+</head>
+<body>
+	<h3>利用contenteditable属性</h3>
+	<div class="editable" contenteditable>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, laborum nisi sequi illo, nulla, debitis blanditiis explicabo temporibus dolorum pariatur inventore enim similique corporis necessitatibus sit, provident officia suscipit. Fuga deleniti recusandae rerum dicta a! Perferendis animi magni facere voluptas, ipsam necessitatibus dicta illum minus error officia obcaecati saepe sequi?
+	</div>
+	<h3>嵌入iframe空页面</h3>
+	<iframe src="library-blank.html" name="richedit" style="height:100px;width:100px;"></iframe>
+	<script type="text/javascript">
+		window.onload = function() {
+			frames["richedit"].document.designMode = "on";
+		}
+	</script>
+</body>
+</html>
