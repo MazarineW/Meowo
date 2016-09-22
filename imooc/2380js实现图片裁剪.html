@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20160922</title>
+	<style type="text/css">
+		body {
+			background: #333;
+		}
+		#box {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 450px;
+			height: 400px;
+		}
+		#img1 {
+			opacity: 0.6;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#img2 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			clip: rect(0, 200px, 200px, 0 );
+		}
+		#main {
+			position: absolute;
+			border: 1px solid #fff;
+			width: 200px;
+			height: 200px;
+		}
+		.mini {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			background: #fff;
+			margin-left: -4px;
+			margin-top:  -4px;
+		}
+		#min1 {
+			cursor: nw-resize;
+		}
+		#min2 {
+			left: 50%;
+			cursor: n-resize;
+		}
+		#min3 {
+			left: 100%;
+			cursor: ne-resize;
+		}
+		#min4 {
+			left: 100%;
+			top: 50%;
+			cursor: e-resize;
+		}
+		#min5 {
+			left: 100%;
+			top: 100%;
+			cursor: se-resize;
+		}
+		#min6 {
+			left: 50%;
+			top: 100%;
+			cursor: s-resize;
+		}
+		#min7 {
+			top: 100%;
+			cursor: sw-resize;
+		}
+		#min8 {
+			top: 50%;
+			cursor: w-resize;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img id="img1" src="images/1.jpg">
+		<img id="img2" src="images/1.jpg">
+		<div id="main">
+			<div id="min1" class="mini"></div>
+			<div id="min2" class="mini"></div>
+			<div id="min3" class="mini"></div>
+			<div id="min4" class="mini"></div>
+			<div id="min5" class="mini"></div>
+			<div id="min6" class="mini"></div>
+			<div id="min7" class="mini"></div>
+			<div id="min8" class="mini"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ToolTip效果</title>
+    <style>
+        body {
+            font-size: 18px;
+            line-height: 1.8;
+            font-family: "Microsoft YaHei", "微软雅黑";
+        }
+
+        #demo {
+            width: 500px;
+            margin: 30px auto;
+            padding: 20px 30px;
+            position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #demo h2 {
+            color: #03F;
+        }
+
+        #demo .tooltip {
+            color: #03F;
+            cursor: help;
+        }
+        .tooltip-box {
+            display: block;
+            background: #fff;
+            line-height: 1.6;
+            border: 1px solid #66ccff;
+            color: #333;
+            padding: 20px;
+            font-size: 12px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+<div id="demo">
+    <p><a class="tooltip" id="tooltip1">慕课网</a>的使命是传播互联网最前沿技术，帮助更多的人实现梦想！在慕课网前端开发、
+        <a class="tooltip" id="tooltip2">Android</a>开发、<a class="tooltip" id="tooltip3">iOS</a>开发等课程统统有，你还在等什么，赶紧来学习吧。
+    </p>
+</div>
+<script type="text/javascript">
+    function addEvent(element, event, callbackFunction) {
+        if (element.addEventListener) {
+            element.addEventListener(event, callbackFunction, false);
+        } else if (element.attachEvent) {
+            element.attachEvent('on' + event, callbackFunction);
+        }
+    }
+    var demo = document.getElementById("demo");
+    var tooltipBoxClass = "tooltip-box";
+    function showTooltip(obj, id, html, width) {
+        if (document.getElementById(id) == null) {
+            var tooltipBox = document.createElement("div");
+            tooltipBox.className = tooltipBoxClass;
+            tooltipBox.id = id;
+            tooltipBox.innerHTML = html;
+            obj.appendChild(tooltipBox);
+
+            tooltipBox.style.width = width ? width + "px" : "auto";
+            tooltipBox.style.position = "absolute";
+            tooltipBox.style.display = "block";
+            var left = obj.offsetLeft;
+            var top = obj.offsetBottom;
+            if (left + tooltipBox.offsetWidth > document.body.clientWidth) {
+                var demoLeft = demo.offsetLeft;
+                left = document.body.clientWidth - tooltipBox.offsetWidth - demoLeft;
+                if (left < 0) {
+                    left = 0;
+                }
+            }
+            tooltipBox.style.left = left + "px";
+            tooltipBox.style.top = top + "px";
+
+            addEvent(obj, "mouseleave", function() {
+                setTimeout(function() {
+                    document.getElementById(id).style.display = "none";
+                }, 300)
+            })
+        } else {
+            document.getElementById(id).style.display = "block";
+        }
+    }
+    addEvent(demo, "mouseover", function(e) {
+        var event = e || window.event;
+        var target = event.target || event.srcElement;
+
+        if (target.className == "tooltip") {
+            var _html;
+            var _id;
+            var _width = 200;
+
+            switch (target.id) {
+               case "tooltip1":
+                   _id = "t1";
+                   _html = "<iframe src='http://baike.baidu.com/link?url=iVmlIebbnCroFNORMza4stUhmuQO7HerrWl8FrO3FZ2uANTUV4NPyf9SKQuj2dzihf2gXDgMeY2qGuBcfHWKL_' width='480' height='300'></iframe>";
+                   _width = 500;
+                   break;
+               case "tooltip2":
+                   _id = "t2";
+                   _html = "<iframe src='http://baike.baidu.com/item/Android/60243' width='480' height='300'></iframe>";
+                   _width = 500;
+                   break;
+               case "tooltip3":
+                   _id = "t3";
+                   _html = "<iframe src='http://baike.baidu.com/item/iOS/45705' width='480' height='300'></iframe>";
+                   _width = 500;
+                   break;
+                   
+                default:
+                    return false; 
+            }
+            showTooltip(target, _id, _html, _width);
+        }
+    })
+  
+
+</script>
+</body>
+</html>
