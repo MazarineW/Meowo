@@ -9,4 +9,4 @@ function getPosition(node) {
 	}
 	return {"left": left, "top": top};
 }
-    
+	
