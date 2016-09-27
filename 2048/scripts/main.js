@@ -1,5 +1,6 @@
 var board = new Array();
 var score = 0;
+//记录当前位置是否已经发生一次合并
 var hasConflicted = new Array();
 
 
@@ -16,6 +17,7 @@ function newgame() {
 }
 
 function init() {
+	//初始化格子背景
 	for (var i = 0; i < 4; i++) {
 		for (var j = 0; j < 4; j++) {
 			var cell = $("#cell-" + i + "-" + j);
@@ -23,6 +25,7 @@ function init() {
 			cell.css("left", getPosLeft(i, j));
 		}
 	}
+	//初始化board
 	for (var i = 0; i < 4; i++) {
 		board[i] = new Array;
 		hasConflicted[i] = new Array;
@@ -31,13 +34,15 @@ function init() {
 			hasConflicted[i][j] = false;
 		}
 	}
-
+	//更新显示
 	updateBoardView();
 	score = 0;
 }
 
 function updateBoardView() {
-	$("num").remove();
+	//移除所有数字
+	$(".num").remove();
+	//根据board填充数字，0不显示
 	for (var i = 0; i < 4; i++) {
 		for (var j = 0; j < 4; j++) {
 			$("#container").append("<div class='num' id='num-"+ i + "-"+ j + "'></div>");
@@ -61,7 +66,7 @@ function updateBoardView() {
 		}
 	}
 }
-
+//随机生成一个数字
 function generateOneNum() {
 	if (nospace(board) == true) {
 		return false;
@@ -69,6 +74,7 @@ function generateOneNum() {
 	//随机一个位置
 	var ranx = Math.floor(Math.random()*4);
 	var rany = Math.floor(Math.random()*4);
+	//如果当前位置没有数字，结束循环，否则重新选取随机位置
 	while (true) {
 		if (board[ranx][rany] == 0) {
 			break;
@@ -120,10 +126,12 @@ $(document).keydown(function(event) {
 })
 
 function isgameover() {
+	//如果没有空位并且不能移动，游戏结束
 	if (nospace(board) && nomove(board)) {
 		gameover();
 	}
 }
+
 function gameover() {
 	alert("Game Over!")
 }
