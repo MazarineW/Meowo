@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>爱心鱼</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			padding-top: 10px;
+		}
+		#allcanvas {
+			width: 800px;
+			height: 600px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#canvas1 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+		}
+		#canvas2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="allcanvas">
+		<canvas id="canvas1" width="800px" height="600px"></canvas>
+		<canvas id="canvas2" width="800px" height="600px"></canvas>
+	</div>
+
+	<script type="text/javascript" src="scripts/9904.js"></script>
+</body>
+</html>
