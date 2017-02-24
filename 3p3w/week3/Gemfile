@@ -1,4 +1,4 @@
-source "https://ruby.taobao.org" #淘宝停止支持 http 镜像
+source "https://ruby.taobao.org"
 
 gem 'compass'
 gem 'guard'
