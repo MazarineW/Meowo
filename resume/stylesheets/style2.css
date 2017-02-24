@@ -1,0 +1,198 @@
+/* line 5, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 25, ../sass/style2.scss */
+body {
+  font-family: "Microsoft YaHei", "FangSong", serif;
+  background-color: #f2f2f2;
+  color: #1c1c1c;
+  line-height: 1.5em;
+}
+
+/* line 33, ../sass/style2.scss */
+header {
+  height: 3em;
+  background-color: #2e2e2e;
+}
+
+/* line 41, ../sass/style2.scss */
+.info {
+  width: 80%;
+  margin: 1em auto;
+}
+/* line 45, ../sass/style2.scss */
+.info h3 {
+  font-family: "STCaiyun", "STXingkai", sans-serif;
+  font-size: 1.5em;
+  color: #2e2e2e;
+  text-align: center;
+  margin: 1em auto .5em;
+}
+/* line 13, ../sass/style2.scss */
+.info h3:after {
+  content: " ";
+  display: block;
+  background-color: #2e2e2e;
+  width: 60px;
+  height: 3px;
+  margin: 0.2em auto;
+  border-radius: 4px;
+}
+/* line 51, ../sass/style2.scss */
+.info h4 {
+  color: #2e2e2e;
+}
+/* line 55, ../sass/style2.scss */
+.info li {
+  list-style-type: circle;
+  list-style-position: inside;
+  color: #1c1c1c;
+}
+/* line 60, ../sass/style2.scss */
+.info #basic {
+  float: left;
+  width: 40%;
+  font-size: 1.2em;
+  text-align: center;
+}
+/* line 67, ../sass/style2.scss */
+.info #basic li {
+  list-style-type: none;
+}
+/* line 71, ../sass/style2.scss */
+.info #basic #avatar {
+  overflow: hidden;
+  border-radius: 100%;
+  width: 140px;
+  margin: 4em auto;
+  transition: transform 1s;
+}
+/* line 78, ../sass/style2.scss */
+.info #basic #avatar:hover {
+  transform: scale(1.6, 1.6);
+}
+/* line 82, ../sass/style2.scss */
+.info #basic #name {
+  font-size: 1.4em;
+  font-family: "Copperplate Gothic Light",sans-serif;
+  font-weight: bold;
+  transition: transform 1s;
+}
+/* line 88, ../sass/style2.scss */
+.info #basic #name:hover {
+  transform: rotate(360deg);
+}
+/* line 91, ../sass/style2.scss */
+.info #basic a {
+  text-decoration: none;
+  color: #1c1c1c;
+}
+/* line 96, ../sass/style2.scss */
+.info #basic a:hover {
+  background-color: #2e2e2e;
+  color: #f2f2f2;
+}
+/* line 101, ../sass/style2.scss */
+.info .right {
+  float: right;
+  width: 60%;
+  margin-bottom: 2em;
+}
+/* line 107, ../sass/style2.scss */
+.info .right #intent li:first-child {
+  list-style-image: url("../images/236-cool.png");
+}
+/* line 110, ../sass/style2.scss */
+.info .right #intent li:last-child {
+  list-style-image: url("../images/072-location.png");
+}
+/* line 115, ../sass/style2.scss */
+.info .right #expe p {
+  font-weight: bold;
+}
+/* line 118, ../sass/style2.scss */
+.info .right #expe li {
+  list-style-image: url("../images/047-stack.png");
+}
+
+/* line 127, ../sass/style2.scss */
+footer {
+  clear: both;
+  background-color: #2e2e2e;
+  text-align: center;
+  font-size: 0.6em;
+  color: #f2f2f2;
+  padding: 0.8em;
+}
+/* line 134, ../sass/style2.scss */
+footer a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+/* line 138, ../sass/style2.scss */
+footer a:hover {
+  background-color: #f2f2f2;
+  color: #1c1c1c;
+}
