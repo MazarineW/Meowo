@@ -7,3 +7,5 @@
 - Jay Skript and the Domsters: 《JavaScript DOM 编程艺术》第 12 章的综合示例
 - jd: 仿京东首页
 - resume: 简历页面设计
+- slidingdoors: 一个滑动特效
+- test: 测试练习
